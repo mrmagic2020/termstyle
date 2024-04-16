@@ -1,3 +1,9 @@
+/**
+ * @mainpage termstyle
+ * @section intro_sec Introduction
+ * termstyle is a C++ library that allows you to create presets and style your terminal output using ANSI escape codes.
+*/
+
 #pragma once
 #ifndef TERMSTYLE_HPP
 #define TERMSTYLE_HPP
