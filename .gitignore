@@ -37,3 +37,6 @@ tempCodeRunnerFile.cpp
 
 # OS generated files
 .DS_Store
+
+# vscode
+.vscode
