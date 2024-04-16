@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "termstyle::OnExit", "classtermstyle_1_1_on_exit.html", null ],
     [ "termstyle::PresetConfig", "structtermstyle_1_1_preset_config.html", null ],
     [ "std::runtime_error", null, [
       [ "Error", "class_error.html", [

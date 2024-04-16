@@ -93,6 +93,7 @@ $(function(){initNavTree('namespacetermstyle.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
@@ -104,8 +105,17 @@ $(function(){initNavTree('namespacetermstyle.html',''); initResizable(); });
 <p>Namespace for the termstyle library.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacetermstyle_1_1config" id="r_namespacetermstyle_1_1config"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetermstyle_1_1config.html">config</a></td></tr>
+<tr class="memdesc:namespacetermstyle_1_1config"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration namespace. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtermstyle_1_1_on_exit.html">OnExit</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a function to be called at the end of the program.  <a href="classtermstyle_1_1_on_exit.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtermstyle_1_1_preset_config.html">PresetConfig</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct for storing preset configurations.  <a href="structtermstyle_1_1_preset_config.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,7 +128,7 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a452219ccabb47a06a4046ae22252ed6c" id="r_a452219ccabb47a06a4046ae22252ed6c"><td class="memItemLeft" align="right" valign="top"><a id="a452219ccabb47a06a4046ae22252ed6c" name="a452219ccabb47a06a4046ae22252ed6c"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a452219ccabb47a06a4046ae22252ed6c">codes</a> : int { <br />
+<tr class="memitem:a483e716a292eb17055b9d1632bc3e2f8" id="r_a483e716a292eb17055b9d1632bc3e2f8"><td class="memItemLeft" align="right" valign="top"><a id="a483e716a292eb17055b9d1632bc3e2f8" name="a483e716a292eb17055b9d1632bc3e2f8"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a483e716a292eb17055b9d1632bc3e2f8">Codes</a> : int { <br />
 &#160;&#160;<b>RESTORE</b> = 0
 , <b>BRIGHT</b> = 1
 , <b>DIM</b> = 2
@@ -164,15 +174,15 @@ Enumerations</h2></td></tr>
 , <b>BACKGROUND_RESET</b> = 49
 <br />
  }</td></tr>
-<tr class="memdesc:a452219ccabb47a06a4046ae22252ed6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class for ANSI escape codes. <br /></td></tr>
-<tr class="separator:a452219ccabb47a06a4046ae22252ed6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a483e716a292eb17055b9d1632bc3e2f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class for ANSI escape codes. <br /></td></tr>
+<tr class="separator:a483e716a292eb17055b9d1632bc3e2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5e5a2497812ca06e36e17375a2d4afe3" id="r_a5e5a2497812ca06e36e17375a2d4afe3"><td class="memItemLeft" align="right" valign="top"><a id="a5e5a2497812ca06e36e17375a2d4afe3" name="a5e5a2497812ca06e36e17375a2d4afe3"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>code2string</b> (std::vector&lt; <a class="el" href="#a452219ccabb47a06a4046ae22252ed6c">codes</a> &gt; codelist) noexcept</td></tr>
-<tr class="memdesc:a5e5a2497812ca06e36e17375a2d4afe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a list of ANSI escape codes to a string. <br /></td></tr>
-<tr class="separator:a5e5a2497812ca06e36e17375a2d4afe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1129c1941c13e5b672f3a42abcd27c31" id="r_a1129c1941c13e5b672f3a42abcd27c31"><td class="memItemLeft" align="right" valign="top"><a id="a1129c1941c13e5b672f3a42abcd27c31" name="a1129c1941c13e5b672f3a42abcd27c31"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>code2string</b> (std::vector&lt; <a class="el" href="#a483e716a292eb17055b9d1632bc3e2f8">Codes</a> &gt; codelist) noexcept</td></tr>
+<tr class="memdesc:a1129c1941c13e5b672f3a42abcd27c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a list of ANSI escape codes to a string. <br /></td></tr>
+<tr class="separator:a1129c1941c13e5b672f3a42abcd27c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc9b81309bb371263cf81f9c3a42eacf" id="r_adc9b81309bb371263cf81f9c3a42eacf"><td class="memItemLeft" align="right" valign="top"><a id="adc9b81309bb371263cf81f9c3a42eacf" name="adc9b81309bb371263cf81f9c3a42eacf"></a>
 <a class="el" href="classtermstyle_1_1_styled_cout.html">StyledCout</a>&#160;</td><td class="memItemRight" valign="bottom"><b>style</b> (const std::string &amp;preset)</td></tr>
 <tr class="memdesc:adc9b81309bb371263cf81f9c3a42eacf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classtermstyle_1_1_styled_cout.html" title="Class for styling std::cout.">StyledCout</a> object with the specified preset. <br /></td></tr>
@@ -181,10 +191,10 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>code2string</b
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addPreset</b> (std::string name, <a class="el" href="structtermstyle_1_1_preset_config.html">PresetConfig</a> config)</td></tr>
 <tr class="memdesc:a186850de8bf7b684faa6f304c759bec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a preset to the presets map. <br /></td></tr>
 <tr class="separator:a186850de8bf7b684faa6f304c759bec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fcfe1e4c09e1adc2e0ebf93619a8098" id="r_a7fcfe1e4c09e1adc2e0ebf93619a8098"><td class="memItemLeft" align="right" valign="top"><a id="a7fcfe1e4c09e1adc2e0ebf93619a8098" name="a7fcfe1e4c09e1adc2e0ebf93619a8098"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> (std::string preset, std::string text)</td></tr>
-<tr class="memdesc:a7fcfe1e4c09e1adc2e0ebf93619a8098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a styled string using a specified preset. <br /></td></tr>
-<tr class="separator:a7fcfe1e4c09e1adc2e0ebf93619a8098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5291f41cbd1f184e612f421343497a41" id="r_a5291f41cbd1f184e612f421343497a41"><td class="memItemLeft" align="right" valign="top"><a id="a5291f41cbd1f184e612f421343497a41" name="a5291f41cbd1f184e612f421343497a41"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> (std::string preset, std::string text=&quot;&quot;)</td></tr>
+<tr class="memdesc:a5291f41cbd1f184e612f421343497a41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a styled string using a specified preset. <br /></td></tr>
+<tr class="separator:a5291f41cbd1f184e612f421343497a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -192,6 +202,9 @@ Variables</h2></td></tr>
 std::map&lt; std::string, <a class="el" href="structtermstyle_1_1_preset_config.html">PresetConfig</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>presets</b> = {}</td></tr>
 <tr class="memdesc:a08f12dc9dd3354ab5175240f7f2368a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores all presets. <br /></td></tr>
 <tr class="separator:a08f12dc9dd3354ab5175240f7f2368a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d98514746fd7e835dd5a60b910992b" id="r_a53d98514746fd7e835dd5a60b910992b"><td class="memItemLeft" align="right" valign="top"><a id="a53d98514746fd7e835dd5a60b910992b" name="a53d98514746fd7e835dd5a60b910992b"></a>
+<a class="el" href="classtermstyle_1_1_on_exit.html">OnExit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>onExitInstance</b></td></tr>
+<tr class="separator:a53d98514746fd7e835dd5a60b910992b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Namespace for the termstyle library. </p>

@@ -1,6 +1,7 @@
 var annotated_dup =
 [
     [ "termstyle", "namespacetermstyle.html", [
+      [ "OnExit", "classtermstyle_1_1_on_exit.html", null ],
       [ "PresetConfig", "structtermstyle_1_1_preset_config.html", null ],
       [ "StyledCout", "classtermstyle_1_1_styled_cout.html", null ],
       [ "StyleString", "structtermstyle_1_1_style_string.html", null ]
