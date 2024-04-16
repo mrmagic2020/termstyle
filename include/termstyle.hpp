@@ -99,11 +99,22 @@ class PresetNotFound : public Error
  */
 namespace termstyle
 {
+    /**
+     * @brief Configuration namespace.
+    */
+    namespace config
+    {
+        /**
+         * @brief Whether to automatically restore style before printing.
+        */
+        bool leading_restore = true;
+        bool trailing_restore = true;
+    } // namespace config
 
     /**
      * @brief Enum class for ANSI escape codes.
      */
-    enum class codes : int
+    enum class Codes : int
     {
         RESTORE = 0,
         BRIGHT = 1,
@@ -150,8 +161,9 @@ namespace termstyle
     /**
      * @brief Converts a list of ANSI escape codes to a string.
     */
-    std::string code2string(std::vector<codes> codelist) noexcept
+    std::string code2string(std::vector<Codes> codelist) noexcept
     {
+        if (codelist.empty()) return "";
         std::string res = "\033[";
         for (int i = 0; i < codelist.size(); i++)
         {
@@ -170,9 +182,9 @@ namespace termstyle
      */
     struct StyleString
     {
-        std::string text;
-        std::vector<codes> prestyles;
-        std::vector<codes> poststyles;
+        std::string text = "";
+        std::vector<Codes> prestyles = {};
+        std::vector<Codes> poststyles = {};
     };
 
     /**
@@ -201,15 +213,15 @@ namespace termstyle
         explicit StyledCout(const PresetConfig &config) : config(config)
         {
             std::cout << code2string(config.prefix.prestyles)
-                      << config.prefix.text
-                      << code2string(config.prefix.poststyles);
+                      + config.prefix.text
+                      + code2string(config.prefix.poststyles);
         }
 
         ~StyledCout()
         {
             std::cout << code2string(config.suffix.prestyles)
-                      << config.suffix.text
-                      << code2string(config.suffix.poststyles);
+                      + config.suffix.text
+                      + code2string(config.suffix.poststyles);
         }
 
         template<typename T>
@@ -240,13 +252,22 @@ namespace termstyle
         {
             throw PresetNameUsed(name);
         }
+
+        if (config::leading_restore)
+        {
+            config.prefix.prestyles.insert(config.prefix.prestyles.begin(), Codes::RESTORE);
+        }
+        if (config::trailing_restore)
+        {
+            config.suffix.poststyles.emplace_back(Codes::RESTORE);
+        }
         presets[name] = std::move(config);
     }
 
     /**
      * @brief Prints a styled string using a specified preset.
      */
-    void print(std::string preset, std::string text)
+    void print(std::string preset, std::string text = "")
     {
         if (presets.find(preset) == presets.end())
         {
@@ -254,13 +275,28 @@ namespace termstyle
         }
         const PresetConfig &config = presets[preset];
         std::cout << code2string(config.prefix.prestyles)
-                  << config.prefix.text
-                  << code2string(config.prefix.poststyles)
-                  << text
-                  << code2string(config.suffix.prestyles)
-                  << config.suffix.text
-                  << code2string(config.suffix.poststyles);
+                  + config.prefix.text
+                  + code2string(config.prefix.poststyles)
+                  + text
+                  + code2string(config.suffix.prestyles)
+                  + config.suffix.text
+                  + code2string(config.suffix.poststyles);
     }
+
+    /**
+     * @brief Registers a function to be called at the end of the program.
+     * @details This function restores the terminal style to its default state after the program exits.
+    */
+    class OnExit
+    {
+    public:
+        ~OnExit()
+        {
+            std::cout << code2string({Codes::RESTORE});
+        }
+    };
+
+    OnExit onExitInstance;
 
 } // namespace termstyle
 
