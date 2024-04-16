@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+tests/main
+
+# CodeRunner
+tempCodeRunnerFile.cpp
+
+# OS generated files
+.DS_Store

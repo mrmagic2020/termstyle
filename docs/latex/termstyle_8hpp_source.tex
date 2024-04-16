@@ -1,0 +1,225 @@
+\doxysection{termstyle.\+hpp}
+\hypertarget{termstyle_8hpp_source}{}\label{termstyle_8hpp_source}\index{include/termstyle.hpp@{include/termstyle.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ TERMSTYLE\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ TERMSTYLE\_HPP}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ TERMSTYLE\_NODISCARD\ [[nodiscard]]}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ TERMSTYLE\_ERROR\_DEF(parent,\ name)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{protected:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ name(std::string\ ename,\ std::string\ msg,\ int\ exit\_code)\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ :\ parent(std::move(ename),\ std::move(msg),\ exit\_code)\ \{\}\ \ \(\backslash\)}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ name(std::string\ ename,\ std::string\ msg,\ ExitCodes\ exit\_code)\ \(\backslash\)}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ :\ parent(std::move(ename),\ std::move(msg),\ exit\_code)\ \{\}\ \ \(\backslash\)}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{public:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ name(std::string\ msg,\ ExitCodes\ exit\_code)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ :\ parent(\#name,\ std::move(msg),\ exit\_code)\ \{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \ \ name(std::string\ msg,\ int\ exit\_code)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ :\ parent(\#name,\ std::move(msg),\ exit\_code)\ \{\}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ TERMSTYLE\_ERROR\_SIMPLE(name)\ \(\backslash\)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \ \ explicit\ name(std::string\ msg)\ :\ name(\#name,\ msg,\ ExitCodes::name)\ \{\}}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{enum\ class}\ ExitCodes\ :\ \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ SUCCESS\ =\ 0,}
+\DoxyCodeLine{00028\ \ \ \ \ IncorrectConstruction\ =\ 100,}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_preset_name_used}{PresetNameUsed}},}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_preset_not_found}{PresetNotFound}},}
+\DoxyCodeLine{00031\ \ \ \ \ BaseClass\ =\ 200}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_error}{Error}}\ :\ \textcolor{keyword}{public}\ std::runtime\_error}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ exit\_code;}
+\DoxyCodeLine{00046\ \ \ \ \ std::string\ error\_name\{\textcolor{stringliteral}{"{}Error"{}}\};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ TERMSTYLE\_NODISCARD\ \textcolor{keywordtype}{int}\ getExitCode()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00050\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ exit\_code;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ TERMSTYLE\_NODISCARD\ std::string\ getErrorName()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ error\_name;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_error}{Error}}(std::string\ name,\ std::string\ msg,\ \textcolor{keywordtype}{int}\ exit\_code\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(ExitCodes::BaseClass))}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ :\ std::runtime\_error(msg),\ exit\_code(exit\_code),\ error\_name(name)\ \{\}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_error}{Error}}(std::string\ name,\ std::string\ msg,\ ExitCodes\ exit\_code)\ :\ \mbox{\hyperlink{class_error}{Error}}(name,\ msg,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(exit\_code))\ \{\}}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_preset_name_used}{PresetNameUsed}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_error}{Error}}}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ TERMSTYLE\_ERROR\_DEF(\mbox{\hyperlink{class_error}{Error}},\ \mbox{\hyperlink{class_preset_name_used}{PresetNameUsed}})}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_preset_name_used}{PresetNameUsed}}(std::string\ name)}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_preset_name_used}{PresetNameUsed}}(\textcolor{stringliteral}{"{}Preset\ name\ \(\backslash\)"{}"{}}\ +\ name\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\ is\ already\ used."{}},\ ExitCodes::PresetNameUsed)\ \{\}}
+\DoxyCodeLine{00074\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_preset_not_found}{PresetNotFound}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_error}{Error}}}
+\DoxyCodeLine{00081\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ TERMSTYLE\_ERROR\_DEF(\mbox{\hyperlink{class_error}{Error}},\ \mbox{\hyperlink{class_preset_not_found}{PresetNotFound}})}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_preset_not_found}{PresetNotFound}}(std::string\ name)}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_preset_not_found}{PresetNotFound}}(\textcolor{stringliteral}{"{}Preset\ \(\backslash\)"{}"{}}\ +\ name\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\ not\ found."{}},\ ExitCodes::PresetNotFound)\ \{\}}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#undef\ TERMSTYLE\_ERROR\_DEF}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#undef\ TERMSTYLE\_ERROR\_SIMPLE}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetermstyle}{termstyle}}}
+\DoxyCodeLine{00101\ \{}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacetermstyle_a452219ccabb47a06a4046ae22252ed6c}{codes}}\ :\ \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ RESTORE\ =\ 0,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ BRIGHT\ =\ 1,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ DIM\ =\ 2,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ ITALIC\ =\ 3,}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ UNDERLINE\ =\ 4,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ FLASH\ =\ 5,}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ REVERSE\ =\ 7,}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ HIDDEN\ =\ 8,}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ STRIKE\ =\ 9,}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ BRIGHT\_RESET\ =\ 22,\ \textcolor{comment}{//\ reset\ bright\ and\ dim}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ DIM\_RESET\ =\ 22,}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ ITALIC\_RESET\ =\ 23,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ UNDERLINE\_RESET\ =\ 24,}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ FLASH\_RESET\ =\ 25,}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ REVERSE\_RESET\ =\ 27,}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ HIDDEN\_RESET\ =\ 28,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ STRIKE\_RESET\ =\ 29,}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ FOREGROUND\_BLACK\ =\ 30,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ FOREGROUND\_RED\ =\ 31,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ FOREGROUND\_GREEN\ =\ 32,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ FOREGROUND\_YELLOW\ =\ 33,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ FOREGROUND\_BLUE\ =\ 34,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ FOREGROUND\_PURPLE\ =\ 35,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ FOREGROUND\_CYAN\ =\ 36,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ FOREGROUND\_WHITE\ =\ 37,}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ FOREGROUND\_RESET\ =\ 39,}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ BACKGROUND\_BLACK\ =\ 40,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ BACKGROUND\_RED\ =\ 41,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ BACKGROUND\_GREEN\ =\ 42,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ BACKGROUND\_YELLOW\ =\ 43,}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ BACKGROUND\_BLUE\ =\ 44,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ BACKGROUND\_PURPLE\ =\ 45,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ BACKGROUND\_CYAN\ =\ 46,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ BACKGROUND\_WHITE\ =\ 47,}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ BACKGROUND\_RESET\ =\ 49}
+\DoxyCodeLine{00148\ \ \ \ \ \};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \ \ \ \ std::string\ \mbox{\hyperlink{namespacetermstyle_a5e5a2497812ca06e36e17375a2d4afe3}{code2string}}(std::vector<codes>\ codelist)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00154\ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ std::string\ res\ =\ \textcolor{stringliteral}{"{}\(\backslash\)033["{}};}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ codelist.size();\ i++)}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ res\ +=\ std::to\_string(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(codelist[i]));}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ codelist.size()\ -\/\ 1)}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res\ +=\ \textcolor{stringliteral}{"{};"{}};}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ res\ +=\ \textcolor{stringliteral}{"{}m"{}};}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtermstyle_1_1_style_string}{StyleString}}}
+\DoxyCodeLine{00172\ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ std::string\ text;}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ std::vector<codes>\ prestyles;}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ std::vector<codes>\ poststyles;}
+\DoxyCodeLine{00176\ \ \ \ \ \};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtermstyle_1_1_preset_config}{PresetConfig}}}
+\DoxyCodeLine{00182\ \ \ \ \ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtermstyle_1_1_style_string}{StyleString}}\ prefix;}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtermstyle_1_1_style_string}{StyleString}}\ suffix;}
+\DoxyCodeLine{00185\ \ \ \ \ \};}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00190\ \ \ \ \ std::map<std::string,\ PresetConfig>\ \mbox{\hyperlink{namespacetermstyle_a08f12dc9dd3354ab5175240f7f2368a9}{presets}}\ =\ \{\};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtermstyle_1_1_styled_cout}{StyledCout}}}
+\DoxyCodeLine{00196\ \ \ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtermstyle_1_1_preset_config}{PresetConfig}}\ \&config;}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtermstyle_1_1_styled_cout}{StyledCout}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtermstyle_1_1_preset_config}{PresetConfig}}\ \&config)\ :\ config(config)}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{namespacetermstyle_a5e5a2497812ca06e36e17375a2d4afe3}{code2string}}(config.prefix.prestyles)}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ config.prefix.text}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacetermstyle_a5e5a2497812ca06e36e17375a2d4afe3}{code2string}}(config.prefix.poststyles);}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtermstyle_1_1_styled_cout}{\string~StyledCout}}()}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{namespacetermstyle_a5e5a2497812ca06e36e17375a2d4afe3}{code2string}}(config.suffix.prestyles)}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ config.suffix.text}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacetermstyle_a5e5a2497812ca06e36e17375a2d4afe3}{code2string}}(config.suffix.poststyles);}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ std::ostream\&\ operator<<(\textcolor{keyword}{const}\ T\&\ value)}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::cout\ <<\ value;}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00220\ \ \ \ \ \};}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00225\ \ \ \ \ \mbox{\hyperlink{classtermstyle_1_1_styled_cout}{StyledCout}}\ \mbox{\hyperlink{namespacetermstyle_adc9b81309bb371263cf81f9c3a42eacf}{style}}(\textcolor{keyword}{const}\ std::string\ \&preset)}
+\DoxyCodeLine{00226\ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacetermstyle_a08f12dc9dd3354ab5175240f7f2368a9}{presets}}.find(preset)\ ==\ \mbox{\hyperlink{namespacetermstyle_a08f12dc9dd3354ab5175240f7f2368a9}{presets}}.end())}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_preset_not_found}{PresetNotFound}}(preset);}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classtermstyle_1_1_styled_cout}{StyledCout}}(\mbox{\hyperlink{namespacetermstyle_a08f12dc9dd3354ab5175240f7f2368a9}{presets}}[preset]);}
+\DoxyCodeLine{00232\ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacetermstyle_a186850de8bf7b684faa6f304c759bec9}{addPreset}}(std::string\ name,\ \mbox{\hyperlink{structtermstyle_1_1_preset_config}{PresetConfig}}\ config)}
+\DoxyCodeLine{00238\ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacetermstyle_a08f12dc9dd3354ab5175240f7f2368a9}{presets}}.find(name)\ !=\ \mbox{\hyperlink{namespacetermstyle_a08f12dc9dd3354ab5175240f7f2368a9}{presets}}.end())\ \textcolor{comment}{//\ preset\ already\ exists}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_preset_name_used}{PresetNameUsed}}(name);}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacetermstyle_a08f12dc9dd3354ab5175240f7f2368a9}{presets}}[name]\ =\ std::move(config);}
+\DoxyCodeLine{00244\ \ \ \ \ \}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacetermstyle_a7fcfe1e4c09e1adc2e0ebf93619a8098}{print}}(std::string\ preset,\ std::string\ text)}
+\DoxyCodeLine{00250\ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacetermstyle_a08f12dc9dd3354ab5175240f7f2368a9}{presets}}.find(preset)\ ==\ \mbox{\hyperlink{namespacetermstyle_a08f12dc9dd3354ab5175240f7f2368a9}{presets}}.end())}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_preset_not_found}{PresetNotFound}}(preset);}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtermstyle_1_1_preset_config}{PresetConfig}}\ \&config\ =\ \mbox{\hyperlink{namespacetermstyle_a08f12dc9dd3354ab5175240f7f2368a9}{presets}}[preset];}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{namespacetermstyle_a5e5a2497812ca06e36e17375a2d4afe3}{code2string}}(config.prefix.prestyles)}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ config.prefix.text}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacetermstyle_a5e5a2497812ca06e36e17375a2d4afe3}{code2string}}(config.prefix.poststyles)}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ text}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacetermstyle_a5e5a2497812ca06e36e17375a2d4afe3}{code2string}}(config.suffix.prestyles)}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ config.suffix.text}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacetermstyle_a5e5a2497812ca06e36e17375a2d4afe3}{code2string}}(config.suffix.poststyles);}
+\DoxyCodeLine{00263\ \ \ \ \ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \}\ \textcolor{comment}{//\ namespace\ termstyle}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TERMSTYLE\_HPP}}
+
+\end{DoxyCode}

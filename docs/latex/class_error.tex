@@ -1,0 +1,40 @@
+\doxysection{Error Class Reference}
+\hypertarget{class_error}{}\label{class_error}\index{Error@{Error}}
+
+
+Base class for all exceptions thrown by the library.  
+
+
+
+
+{\ttfamily \#include $<$termstyle.\+hpp$>$}
+
+Inheritance diagram for Error\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_error}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_error_aee8c4c8314d672bce8adc87172a687db}\label{class_error_aee8c4c8314d672bce8adc87172a687db} 
+TERMSTYLE\+\_\+\+NODISCARD int {\bfseries get\+Exit\+Code} () const
+\item 
+\Hypertarget{class_error_a3c01c56d441c285817449525b6b3cc13}\label{class_error_a3c01c56d441c285817449525b6b3cc13} 
+TERMSTYLE\+\_\+\+NODISCARD std\+::string {\bfseries get\+Error\+Name} () const
+\item 
+\Hypertarget{class_error_ad5f6dbe717e34e60cb6a08605dd7bea5}\label{class_error_ad5f6dbe717e34e60cb6a08605dd7bea5} 
+{\bfseries Error} (std\+::string name, std\+::string msg, int exit\+\_\+code=static\+\_\+cast$<$ int $>$(Exit\+Codes\+::\+Base\+Class))
+\item 
+\Hypertarget{class_error_ac812aaa63d2eea1eee9767bc267fc802}\label{class_error_ac812aaa63d2eea1eee9767bc267fc802} 
+{\bfseries Error} (std\+::string name, std\+::string msg, Exit\+Codes exit\+\_\+code)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for all exceptions thrown by the library. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/termstyle.\+hpp\end{DoxyCompactItemize}
