@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['presets_0',['presets',['../namespacetermstyle.html#a08f12dc9dd3354ab5175240f7f2368a9',1,'termstyle']]]
+  ['leading_5frestore_0',['leading_restore',['../namespacetermstyle_1_1config.html#ab2c9c927e05592658bbbbefe82e245c4',1,'termstyle::config']]]
 ];
