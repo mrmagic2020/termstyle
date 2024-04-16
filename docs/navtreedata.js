@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "termstyle", "index.html", [
+    [ "Introduction", "index.html#intro_sec", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],

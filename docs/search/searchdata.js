@@ -1,12 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "acelopst",
+  0: "aceilopst",
   1: "eops",
   2: "t",
   3: "acps",
   4: "lp",
   5: "c",
-  6: "e"
+  6: "e",
+  7: "t"
 };
 
 var indexSectionNames =
@@ -17,7 +18,8 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "enums",
-  6: "groups"
+  6: "groups",
+  7: "pages"
 };
 
 var indexSectionLabels =
@@ -28,6 +30,7 @@ var indexSectionLabels =
   3: "Functions",
   4: "Variables",
   5: "Enumerations",
-  6: "Modules"
+  6: "Modules",
+  7: "Pages"
 };
 
