@@ -14,8 +14,8 @@ int main()
 
     ts::PresetConfig debug_preset = {
         .prefix = {
-            .prestyles = {ts::Codes::DIM, ts::Codes::FOREGROUND_CYAN},
             .text = "[DEBUG] ",
+            .prestyles = {ts::Codes::DIM, ts::Codes::FOREGROUND_CYAN},
             .poststyles = {ts::Codes::DIM_RESET}
         },
         .suffix = {
@@ -28,8 +28,8 @@ int main()
             .text = "Whatever you type will have a green background",
         },
         .suffix = {
-            .prestyles = {ts::Codes::FLASH},
             .text = " >> ",
+            .prestyles = {ts::Codes::FLASH},
             .poststyles = {ts::Codes::FLASH_RESET, ts::Codes::BACKGROUND_GREEN}
         }
     };
