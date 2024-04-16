@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
-## [1.0.0] - 2024-04-16
+## [1.0.0-pre.1] - 2024-04-16
 
 - initial release
 
@@ -16,5 +16,5 @@ and this project adheres to [Semantic Versioning].
 [semantic versioning]: https://semver.org/spec/v2.0.0.html
 
 <!-- Versions -->
-[unreleased]: https://github.com/mrmagic2020/termstyle/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/mrmagic2020/termstyle/releases/tag/v1.0.0
+[unreleased]: https://github.com/mrmagic2020/termstyle/compare/v1.0.0-pre.1...HEAD
+[1.0.0-pre.1]: https://github.com/mrmagic2020/termstyle/releases/tag/v1.0.0-pre.1
