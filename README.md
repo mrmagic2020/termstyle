@@ -4,6 +4,12 @@
 
 <img alt="banner" src="https://github.com/mrmagic2020/termstyle/blob/main/assets/banner.png?raw=true" width="500">
 
+</br>
+
+![GitHub License](https://img.shields.io/github/license/mrmagic2020/termstyle)
+![GitHub Release Date](https://img.shields.io/github/release-date-pre/mrmagic2020/termstyle)
+![GitHub Tag](https://img.shields.io/github/v/tag/mrmagic2020/termstyle)
+
 </div>
 
 An open-source C++ header file that enables developers to easily define and apply customizable style presets for terminal outputs such as warnings, infos, and errors.
@@ -29,6 +35,7 @@ struct PresetConfig
 {
     StyleString prefix;
     StyleString suffix;
+    Config config;
 };
 ```
 
@@ -38,27 +45,78 @@ It contains two `termstyle::StyleString` structs - `prefix` and `suffix`.
 
 - A `suffix` is inserted after the text.
 
+And a `termstyle::config` struct.
+
 A `StyleString` struct looks like
 
 ```hpp
 struct StyleString
-{
-    std::string text = "";
-    std::vector<Codes> prestyles = {};
-    std::vector<Codes> poststyles = {};
-};
+    {
+        /**
+         * The text to be styled.
+        */
+        std::string text = "";
+        /**
+         * A vector container that stores objects of type Codes, applied before `text`.
+         * 
+         * @see Codes
+         */
+        std::vector<Codes> prestyles = {};
+        /**
+         * A vector container that stores objects of type Codes, applied after `text`.
+         * 
+         * @see Codes
+        */
+        std::vector<Codes> poststyles = {};
+        /**
+         * A vector container that stores objects of type Col256, applied before `text`.
+         * 
+         * @see Col256
+        */
+        std::vector<Col256> prestlye256 = {};
+        /**
+         * A vector container that stores objects of type Col256, applied after `text`.
+         * 
+         * @see Col256
+        */
+        std::vector<Col256> poststyle256 = {};
+    };
 ```
 
-- `text` is the body of text to be inserted.
+> Do NOT include a new line character `\n` in your suffix. Instead, adjust the `config` to your needs.
 
-- `prestyles` and `poststyles` are lists of ANSI escape codes to be applied before and after `text`, respectively. A list of `Codes` can be found [here](https://mrmagic2020.github.io/termstyle/namespacetermstyle.html#a452219ccabb47a06a4046ae22252ed6c).
+A `Config` struct looks like
 
-> Note that you don't need to include `termstyle::Codes::RESTORE` at the end of a PresetConfig. It is, by default, automatically inserted at the end of `preset.suffix.poststyle`. For more information on `termstyle::config`, see [Adjusting Configuraion](#adjusting-configuration).
+```hpp
+    struct Config
+    {
+        /**
+         * Indicates whether leading restore is enabled or not.
+         * If set to true, it means that leading restore is enabled.
+         * If set to false, leading restore is disabled.
+         */
+        bool leading_restore = true;
+        /**
+         * Indicates whether trailing restore is enabled or not.
+         * If set to true, trailing restore will be performed.
+         * If set to false, trailing restore will be skipped.
+         */
+        bool trailing_restore = true;
+
+        /**
+         * Specifies whether a trailing newline character should be added when printing.
+         * If set to true, a newline character will be added at the end of the printed output.
+         * If set to false, no newline character will be added.
+         */
+        bool trailing_newline = true;
+    };
+```
 
 #### Example
 
 ```cpp
-#include "./include/termstyle.hpp"
+#include <iostream>
+#include "../include/termstyle.hpp"
 namespace ts = termstyle;
 
 int main()
@@ -141,16 +199,6 @@ int main()
 }
 ```
 
-### Adjusting Configuration
-
-There are two variables stored in `termstyle::config`.
-
-- `bool leading restore = true` Whether to automatically restore style before printing.
-
-- `bool trailing restore = true` Whether to automatically restore style after printing.
-
-You might need to adjust them when [adding presets for fancy input](#fancy-input). Only presets added after changing these values are affected by the change.
-
 ## Examples
 
 ### Basic usage
@@ -170,7 +218,7 @@ int main()
         .suffix = {
             .text = "\n"
         }
-    };
+    }
 
     ts::addPreset("debug", debug_preset);
     ts::print("debug", "This is a debug message printed using termstyle::print.");
@@ -180,9 +228,43 @@ int main()
 }
 ```
 
+Output
+
+<img alt="basic-usage-output" src="https://github.com/mrmagic2020/termstyle/blob/main/assets/basic-usage-output.png?raw=true" width="750">
+
+### Color256
+
+```cpp
+#include "../include/termstyle.hpp"
+namespace ts = termstyle;
+
+int main()
+{
+    std::vector<ts::PresetConfig> configs(256);
+    for (int i = 0; i < 256; i++)
+    {
+        ts::PresetConfig config = {
+            .prefix = {
+                .prestlye256 = {ts::Col256(ts::ColorMode::FOREGROUND, i)},
+                .text = "[Color #" + std::to_string(i) + "]",
+                .poststyles = {ts::Codes::RESTORE},
+                .poststyle256 = {ts::Col256(ts::ColorMode::BACKGROUND, i)}
+            }
+        };
+        ts::addPreset("color" + std::to_string(i), config);
+    }
+
+    for (int i = 0; i < 256; i++)
+    {
+        ts::print("color" + std::to_string(i), "                    ");
+    }
+    return 0;
+}
+```
+
 #### Output
 
-<img alt="basic-usage-output" src="https://github.com/mrmagic2020/termstyle/blob/dev-1.0.0/assets/basic-usage-output.png?raw=true" width="750">
+<img alt="color256-output" src="https://github.com/mrmagic2020/termstyle/blob/main/assets/col256-output.png?raw=true" width="300">
 
 ### Fancy Input
 
@@ -200,20 +282,19 @@ int main()
             .text = " >> ",
             .prestyles = {ts::Codes::FLASH},
             .poststyles = {ts::Codes::FLASH_RESET, ts::Codes::BACKGROUND_GREEN}
+        },
+        .config = {
+            .trailing_restore = false,
+            .trailing_newline = false
         }
     };
 
-    // We need to disable auto restore after the line
-    // since we want to change the style of user input
-    ts::config::trailing_restore = false;
-
     ts::addPreset("input", input_preset);
-
     std::string input;
     ts::print("input");
-    scanf("%s", &input);
+    std::getline(std::cin, input);
     ts::style("input");
-    scanf("%s", &input);
+    std::getline(std::cin, input);
     
     return 0;
 }

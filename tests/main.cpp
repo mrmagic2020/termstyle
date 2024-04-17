@@ -10,16 +10,12 @@ int main()
     error_preset.prefix.prestyles = {ts::Codes::BRIGHT, ts::Codes::FOREGROUND_RED};
     error_preset.prefix.text = "[ERROR] ";
     error_preset.prefix.poststyles = {ts::Codes::BRIGHT_RESET};
-    error_preset.suffix.text = "\n";
 
     ts::PresetConfig debug_preset = {
         .prefix = {
             .text = "[DEBUG] ",
             .prestyles = {ts::Codes::DIM, ts::Codes::FOREGROUND_CYAN},
             .poststyles = {ts::Codes::DIM_RESET}
-        },
-        .suffix = {
-            .text = "\n"
         }
     };
 
@@ -31,6 +27,10 @@ int main()
             .text = " >> ",
             .prestyles = {ts::Codes::FLASH},
             .poststyles = {ts::Codes::FLASH_RESET, ts::Codes::BACKGROUND_GREEN}
+        },
+        .config = {
+            .trailing_restore = false,
+            .trailing_newline = false
         }
     };
 
@@ -42,7 +42,6 @@ int main()
     ts::print("debug", "This is a debug message printed using termstyle::print.");
     ts::style("debug") << "This is a debug message printed using termstyle::style.";
 
-    ts::config::trailing_restore = false;
     ts::addPreset("input", input_preset);
     std::string input;
     ts::print("input");

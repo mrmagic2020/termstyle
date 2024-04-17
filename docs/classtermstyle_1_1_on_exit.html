@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">termstyle<span id="projectnumber">&#160;1.0.0-pre.1</span>
+   <div id="projectname">termstyle<span id="projectnumber">&#160;1.0.0-pre.2</span>
    </div>
    <div id="projectbrief">An open-source C++ header file that enables developers to easily define and apply customizable style presets for terminal outputs such as warnings, infos, and errors.</div>
   </td>
@@ -93,19 +93,57 @@ $(function(){initNavTree('classtermstyle_1_1_on_exit.html',''); initResizable();
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtermstyle_1_1_on_exit-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">termstyle::OnExit Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Registers a function to be called at the end of the program.  
+<p>The <code><a class="el" href="classtermstyle_1_1_on_exit.html" title="The OnExit class is a helper class that performs an action when it goes out of scope.">OnExit</a></code> class is a helper class that performs an action when it goes out of scope.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="termstyle_8hpp_source.html">termstyle.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:afb8dc15c160ceb03cf39a1145ccb3b6b" id="r_afb8dc15c160ceb03cf39a1145ccb3b6b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb8dc15c160ceb03cf39a1145ccb3b6b">~OnExit</a> ()</td></tr>
+<tr class="memdesc:afb8dc15c160ceb03cf39a1145ccb3b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <code><a class="el" href="classtermstyle_1_1_on_exit.html" title="The OnExit class is a helper class that performs an action when it goes out of scope.">OnExit</a></code> class.  <br /></td></tr>
+<tr class="separator:afb8dc15c160ceb03cf39a1145ccb3b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Registers a function to be called at the end of the program. </p>
-<p>This function restores the terminal style to its default state after the program exits. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<div class="textblock"><p>The <code><a class="el" href="classtermstyle_1_1_on_exit.html" title="The OnExit class is a helper class that performs an action when it goes out of scope.">OnExit</a></code> class is a helper class that performs an action when it goes out of scope. </p>
+<p>This class is designed to be used with the RAII (Resource Acquisition Is Initialization) idiom. When an object of the <code><a class="el" href="classtermstyle_1_1_on_exit.html" title="The OnExit class is a helper class that performs an action when it goes out of scope.">OnExit</a></code> class is created, it performs the specified action in its destructor when it goes out of scope, regardless of how the scope is exited (e.g., normal exit, exception, etc.).</p>
+<p>In this specific implementation, the <code><a class="el" href="classtermstyle_1_1_on_exit.html" title="The OnExit class is a helper class that performs an action when it goes out of scope.">OnExit</a></code> class is used to restore the terminal style by printing the restore code when the object goes out of scope. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afb8dc15c160ceb03cf39a1145ccb3b6b" name="afb8dc15c160ceb03cf39a1145ccb3b6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb8dc15c160ceb03cf39a1145ccb3b6b">&#9670;&#160;</a></span>~OnExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">termstyle::OnExit::~OnExit </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor for the <code><a class="el" href="classtermstyle_1_1_on_exit.html" title="The OnExit class is a helper class that performs an action when it goes out of scope.">OnExit</a></code> class. </p>
+<p>This destructor is responsible for performing the specified action when the <code><a class="el" href="classtermstyle_1_1_on_exit.html" title="The OnExit class is a helper class that performs an action when it goes out of scope.">OnExit</a></code> object goes out of scope. In this implementation, it prints the restore code to restore the terminal style. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="termstyle_8hpp_source.html">termstyle.hpp</a></li>
 </ul>
 </div><!-- contents -->

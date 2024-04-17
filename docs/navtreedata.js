@@ -25,7 +25,37 @@
 var NAVTREE =
 [
   [ "termstyle", "index.html", [
-    [ "Introduction", "index.html#intro_sec", null ],
+    [ "Features", "index.html#autotoc_md7", null ],
+    [ "Usage", "index.html#autotoc_md8", [
+      [ "Creating a preset", "index.html#autotoc_md9", [
+        [ "Example", "index.html#autotoc_md10", null ]
+      ] ],
+      [ "Registering a preset", "index.html#autotoc_md11", [
+        [ "Example", "index.html#autotoc_md12", null ]
+      ] ],
+      [ "Using a preset", "index.html#autotoc_md13", [
+        [ "Example", "index.html#autotoc_md14", null ]
+      ] ]
+    ] ],
+    [ "Examples", "index.html#autotoc_md15", [
+      [ "Basic usage", "index.html#autotoc_md16", [
+        [ "Output", "index.html#autotoc_md17", null ]
+      ] ],
+      [ "Color256", "index.html#autotoc_md18", [
+        [ "Output", "index.html#autotoc_md19", null ]
+      ] ],
+      [ "Fancy Input", "index.html#autotoc_md20", [
+        [ "Output", "index.html#autotoc_md21", null ]
+      ] ]
+    ] ],
+    [ "Changelog", "md__c_h_a_n_g_e_l_o_g.html", [
+      [ "Unreleased", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md1", [
+        [ "Added", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md2", null ],
+        [ "Removed", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md3", null ],
+        [ "Fixed", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md4", null ]
+      ] ],
+      [ "1.0.0-pre.1 - 2024-04-16", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md5", null ]
+    ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -39,7 +69,12 @@ var NAVTREE =
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ]
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]

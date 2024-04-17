@@ -27,11 +27,10 @@
 *.lib
 
 # Executables
+bin/
 *.exe
 *.out
 *.app
-tests/main
-tests/demo
 
 # CodeRunner
 tempCodeRunnerFile.cpp
