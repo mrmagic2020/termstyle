@@ -44,11 +44,13 @@ int main()
 
     ts::config::trailing_restore = false;
     ts::addPreset("input", input_preset);
-    char * input;
+    std::string input;
     ts::print("input");
-    scanf("%s", input);
+    std::getline(std::cin, input);
     ts::style("input");
-    scanf("%s", input);
+    std::getline(std::cin, input);
+
+    ts::style("debug") << "input=" << input;
     
     return 0;
 }
