@@ -13,8 +13,8 @@ int main()
 
     ts::PresetConfig debug_preset = {
         .prefix = {
-            .prestyles = {ts::Codes::DIM, ts::Codes::FOREGROUND_CYAN},
             .text = "[DEBUG] ",
+            .prestyles = {ts::Codes::DIM, ts::Codes::FOREGROUND_CYAN},
             .poststyles = {ts::Codes::DIM_RESET}
         }
     };
@@ -24,8 +24,8 @@ int main()
             .text = "Whatever you type will have a green background",
         },
         .suffix = {
-            .prestyles = {ts::Codes::FLASH},
             .text = " >> ",
+            .prestyles = {ts::Codes::FLASH},
             .poststyles = {ts::Codes::FLASH_RESET, ts::Codes::BACKGROUND_GREEN}
         },
         .config = {
@@ -43,11 +43,13 @@ int main()
     ts::style("debug") << "This is a debug message printed using termstyle::style.";
 
     ts::addPreset("input", input_preset);
-    char * input;
+    std::string input;
     ts::print("input");
-    scanf("%s", input);
+    std::getline(std::cin, input);
     ts::style("input");
-    scanf("%s", input);
+    std::getline(std::cin, input);
+
+    ts::style("debug") << "input=" << input;
     
     return 0;
 }
