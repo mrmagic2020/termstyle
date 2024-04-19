@@ -25,37 +25,45 @@
 var NAVTREE =
 [
   [ "termstyle", "index.html", [
-    [ "Features", "index.html#autotoc_md7", null ],
-    [ "Usage", "index.html#autotoc_md8", [
-      [ "Creating a preset", "index.html#autotoc_md9", [
-        [ "Example", "index.html#autotoc_md10", null ]
+    [ "Features", "index.html#autotoc_md12", null ],
+    [ "Usage", "index.html#autotoc_md13", [
+      [ "Creating a preset", "index.html#autotoc_md14", [
+        [ "Example", "index.html#autotoc_md15", null ]
       ] ],
-      [ "Registering a preset", "index.html#autotoc_md11", [
-        [ "Example", "index.html#autotoc_md12", null ]
+      [ "Registering a preset", "index.html#autotoc_md16", [
+        [ "Example", "index.html#autotoc_md17", null ]
       ] ],
-      [ "Using a preset", "index.html#autotoc_md13", [
-        [ "Example", "index.html#autotoc_md14", null ]
+      [ "Using a preset", "index.html#autotoc_md18", [
+        [ "Example", "index.html#autotoc_md19", null ]
       ] ]
     ] ],
-    [ "Examples", "index.html#autotoc_md15", [
-      [ "Basic usage", "index.html#autotoc_md16", [
-        [ "Output", "index.html#autotoc_md17", null ]
+    [ "Examples", "index.html#autotoc_md20", [
+      [ "Basic usage", "index.html#autotoc_md21", null ],
+      [ "Color256", "index.html#autotoc_md22", [
+        [ "Output", "index.html#autotoc_md23", null ]
       ] ],
-      [ "Color256", "index.html#autotoc_md18", [
-        [ "Output", "index.html#autotoc_md19", null ]
+      [ "RGB Colors", "index.html#autotoc_md24", [
+        [ "Output", "index.html#autotoc_md25", null ]
       ] ],
-      [ "Fancy Input", "index.html#autotoc_md20", [
-        [ "Output", "index.html#autotoc_md21", null ]
+      [ "Fancy Input", "index.html#autotoc_md26", [
+        [ "Output", "index.html#autotoc_md27", null ]
       ] ]
     ] ],
     [ "Changelog", "md__c_h_a_n_g_e_l_o_g.html", [
-      [ "Unreleased", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md1", [
-        [ "Added", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md2", null ],
-        [ "Removed", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md3", null ],
-        [ "Fixed", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md4", null ]
+      [ "Unreleased", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md1", null ],
+      [ "1.0.0-pre.3 - 2024-04-19", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md2", [
+        [ "Added", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md3", null ],
+        [ "Changed", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md4", null ],
+        [ "Deprecated", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md5", null ]
       ] ],
-      [ "1.0.0-pre.1 - 2024-04-16", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md5", null ]
+      [ "1.0.0-pre.2 - 2024-04-17", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md6", [
+        [ "Added", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md7", null ],
+        [ "Removed", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md8", null ],
+        [ "Fixed", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md9", null ]
+      ] ],
+      [ "1.0.0-pre.1 - 2024-04-16", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md10", null ]
     ] ],
+    [ "Deprecated List", "deprecated.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -78,7 +86,8 @@ var NAVTREE =
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['onexit_0',['OnExit',['../classtermstyle_1_1_on_exit.html',1,'termstyle']]],
-  ['output_1',['Output',['../index.html#autotoc_md17',1,'Output'],['../index.html#autotoc_md19',1,'Output'],['../index.html#autotoc_md21',1,'Output']]]
+  ['leading_5frestore_0',['leading_restore',['../structtermstyle_1_1_config.html#a8c277c779ad1fde2489c653f88573731',1,'termstyle::Config']]],
+  ['list_1',['Deprecated List',['../deprecated.html',1,'']]]
 ];

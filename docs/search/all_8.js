@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['github_20com_20mrmagic2020_20termstyle_20compare_20v1_200_200_20pre_201_20head_20unreleased_20a_0',['&lt;a href=&quot;https://github.com/mrmagic2020/termstyle/compare/v1.0.0-pre.1...HEAD&quot; &gt;Unreleased&lt;/a&gt;',['../md__c_h_a_n_g_e_l_o_g.html#autotoc_md1',1,'']]],
-  ['github_20com_20mrmagic2020_20termstyle_20releases_20tag_20v1_200_200_20pre_201_201_200_200_20pre_201_20a_202024_2004_2016_1',['&lt;a href=&quot;https://github.com/mrmagic2020/termstyle/releases/tag/v1.0.0-pre.1&quot; &gt;1.0.0-pre.1&lt;/a&gt; - 2024-04-16',['../md__c_h_a_n_g_e_l_o_g.html#autotoc_md5',1,'']]]
+  ['error_0',['Error',['../class_error.html',1,'']]],
+  ['errors_1',['Errors',['../group___error__group.html',1,'']]],
+  ['example_2',['Example',['../index.html#autotoc_md15',1,'Example'],['../index.html#autotoc_md17',1,'Example'],['../index.html#autotoc_md19',1,'Example']]],
+  ['examples_3',['Examples',['../index.html#autotoc_md20',1,'']]]
 ];

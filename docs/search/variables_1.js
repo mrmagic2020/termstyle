@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['leading_5frestore_0',['leading_restore',['../structtermstyle_1_1_config.html#a8c277c779ad1fde2489c653f88573731',1,'termstyle::Config']]]
+  ['id_0',['ID',['../structtermstyle_1_1_col256.html#a992d1b18558171efe65fa9ab73789793',1,'termstyle::Col256']]]
 ];

@@ -1,9 +1,5 @@
 var termstyle_8hpp =
 [
-    [ "termstyle::Config", "structtermstyle_1_1_config.html", "structtermstyle_1_1_config" ],
-    [ "termstyle::StyleString", "structtermstyle_1_1_style_string.html", "structtermstyle_1_1_style_string" ],
-    [ "termstyle::PresetConfig", "structtermstyle_1_1_preset_config.html", null ],
-    [ "termstyle::StyledCout", "classtermstyle_1_1_styled_cout.html", null ],
     [ "termstyle::OnExit", "classtermstyle_1_1_on_exit.html", "classtermstyle_1_1_on_exit" ],
     [ "Codes", "termstyle_8hpp.html#ga483e716a292eb17055b9d1632bc3e2f8", [
       [ "RESTORE", "termstyle_8hpp.html#gga483e716a292eb17055b9d1632bc3e2f8ac95fa04340c629ddfa2d38e285e59245", null ],
@@ -46,17 +42,26 @@ var termstyle_8hpp =
       [ "FOREGROUND", "termstyle_8hpp.html#a54162889540b042e89ba1cfaef40c1bbae41f4c3e11dd067fd5691da0124b8fd2", null ],
       [ "BACKGROUND", "termstyle_8hpp.html#a54162889540b042e89ba1cfaef40c1bba87ed58ce5596142e11cb65deb049bb4b", null ]
     ] ],
+    [ "ColorType", "termstyle_8hpp.html#a6f695223c4f701946d99fcf1577f3a86", [
+      [ "COL16", "termstyle_8hpp.html#a6f695223c4f701946d99fcf1577f3a86a97bbae0de1b9f855d0238351aa7e9344", null ],
+      [ "COL256", "termstyle_8hpp.html#a6f695223c4f701946d99fcf1577f3a86a53848f87c24acffbb2831453b76eb7be", null ],
+      [ "COLRGB", "termstyle_8hpp.html#a6f695223c4f701946d99fcf1577f3a86a0325fcf467b30d13ee46c36038697fc2", null ]
+    ] ],
     [ "ParseMode", "termstyle_8hpp.html#aac8137ddd7b22bd8b44bdbd83b2ec907", [
       [ "ALL", "termstyle_8hpp.html#aac8137ddd7b22bd8b44bdbd83b2ec907a5fb1f955b45e38e31789286a1790398d", null ],
       [ "PREFIX", "termstyle_8hpp.html#aac8137ddd7b22bd8b44bdbd83b2ec907a4e076080d87888ac96f19b271a6ee406", null ],
       [ "SUFFIX", "termstyle_8hpp.html#aac8137ddd7b22bd8b44bdbd83b2ec907ad655f29b18784c0aa88b8953173864eb", null ]
     ] ],
-    [ "addPreset", "termstyle_8hpp.html#a90ea82b60e4933afa367136a048fb71a", null ],
+    [ "addPreset", "termstyle_8hpp.html#ga90ea82b60e4933afa367136a048fb71a", null ],
+    [ "code2string", "termstyle_8hpp.html#ga8972e5efc7fdae138bc9e5e6d5a7e8d1", null ],
     [ "code2string", "termstyle_8hpp.html#gaf81ff8310ccfdb964f85043689815e99", null ],
+    [ "col256_2string", "termstyle_8hpp.html#gaa4dc205a3d21eada888f57686c26921a", null ],
     [ "col256_2string", "termstyle_8hpp.html#ga4cfe04ce3c67abe65542d9d259dae9da", null ],
+    [ "colrgb_2string", "termstyle_8hpp.html#gab5f6a721a8266de3639a5c22ac81ea46", null ],
     [ "parse", "termstyle_8hpp.html#a7435efe03a30835c74430fe9be2dbccf", null ],
-    [ "print", "termstyle_8hpp.html#a5291f41cbd1f184e612f421343497a41", null ],
-    [ "style", "termstyle_8hpp.html#adc9b81309bb371263cf81f9c3a42eacf", null ],
+    [ "parseColortype", "termstyle_8hpp.html#a04e642bb445e06fdb94d65587b28a333", null ],
+    [ "print", "termstyle_8hpp.html#ga5291f41cbd1f184e612f421343497a41", null ],
+    [ "style", "termstyle_8hpp.html#gadc9b81309bb371263cf81f9c3a42eacf", null ],
     [ "validateColorID", "termstyle_8hpp.html#ga3da712bc12b9a89917d79ec09c5fb72c", null ],
     [ "presets", "termstyle_8hpp.html#a08f12dc9dd3354ab5175240f7f2368a9", null ]
 ];

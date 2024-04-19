@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">termstyle<span id="projectnumber">&#160;1.0.0-pre.2</span>
+   <div id="projectname">termstyle<span id="projectnumber">&#160;1.0.0-pre.3</span>
    </div>
    <div id="projectbrief">An open-source C++ header file that enables developers to easily define and apply customizable style presets for terminal outputs such as warnings, infos, and errors.</div>
   </td>
@@ -98,27 +98,51 @@ $(function(){initNavTree('md__c_h_a_n_g_e_l_o_g.html',''); initResizable(); });
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> All notable changes to this project will be documented in this file.</p>
 <p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>, and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-<a href="https://github.com/mrmagic2020/termstyle/compare/v1.0.0-pre.1...HEAD">Unreleased</a></h1>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<a href="https://github.com/mrmagic2020/termstyle/compare/v1.0.0-pre.3...HEAD">Unreleased</a></h1>
+<h1><a class="anchor" id="autotoc_md2"></a>
+<a href="https://github.com/mrmagic2020/termstyle/releases/v1.0.0-pre.3">1.0.0-pre.3</a> - 2024-04-19</h1>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Added</h2>
+<ul>
+<li>Support for RGB colors.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Changed</h2>
+<ul>
+<li>The three types of colors (Color16, Color256, and RGB) are now stored in a union in <code>struct Color</code>.</li>
+<li>In <code>struct StyleString</code>, members <code>prestyles</code> and <code>poststyles</code> are now <code>std::vector&lt;Color&gt;</code> instead of <code>std::vector&lt;Codes&gt;</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Deprecated</h2>
+<ul>
+<li>Some members of <code>struct StyleString</code> are deprecated, and will be removed in the next release.<ul>
+<li><code>prestyle256</code> is deprecated, use <code>prestyles</code> instead.</li>
+<li><code>poststyle256</code> is deprecated, use <code>poststyles</code> instead.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6"></a>
+<a href="https://github.com/mrmagic2020/termstyle/releases/v1.0.0-pre.2">1.0.0-pre.2</a> - 2024-04-17</h1>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Added</h2>
 <ul>
 <li>Support for Color256.</li>
 <li>Configuration for automatic new lines after printing.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 Removed</h2>
 <ul>
 <li>Removed namespace <code>termstyle::config</code>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Fixed</h2>
 <ul>
 <li>Fix an issue where <code>poststyles</code> may be applied after a new line character.</li>
 <li>STL include issues.</li>
 <li>Improve code readability.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md5"></a>
-<a href="https://github.com/mrmagic2020/termstyle/releases/tag/v1.0.0-pre.1">1.0.0-pre.1</a> - 2024-04-16</h1>
+<h1><a class="anchor" id="autotoc_md10"></a>
+<a href="https://github.com/mrmagic2020/termstyle/releases/v1.0.0-pre.1">1.0.0-pre.1</a> - 2024-04-16</h1>
 <ul>
 <li>initial release </li>
 </ul>

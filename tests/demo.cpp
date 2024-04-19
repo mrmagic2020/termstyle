@@ -7,30 +7,26 @@ void createAndAddPresets()
 {
     // Preset for errors
     ts::PresetConfig error_preset;
-    error_preset.prefix.prestyles = {ts::Codes::BRIGHT, ts::Codes::FOREGROUND_RED};
+    error_preset.prefix.prestyles = {ts::Color(ts::Codes::BRIGHT), ts::Color(ts::Codes::FOREGROUND_RED)};
     error_preset.prefix.text = "[ERROR] ";
-    error_preset.suffix.text = "\n";
     ts::addPreset("error", error_preset);
 
     // Preset for warnings
     ts::PresetConfig warning_preset;
-    warning_preset.prefix.prestyles = {ts::Codes::BRIGHT, ts::Codes::FOREGROUND_YELLOW};
+    warning_preset.prefix.prestyles = {ts::Color(ts::Codes::BRIGHT), ts::Color(ts::Codes::FOREGROUND_YELLOW)};
     warning_preset.prefix.text = "[WARNING] ";
-    warning_preset.suffix.text = "\n";
     ts::addPreset("warning", warning_preset);
 
     // Preset for info messages
     ts::PresetConfig info_preset;
-    info_preset.prefix.prestyles = {ts::Codes::BRIGHT, ts::Codes::FOREGROUND_CYAN};
+    info_preset.prefix.prestyles = {ts::Color(ts::Codes::BRIGHT), ts::Color(ts::Codes::FOREGROUND_CYAN)};
     info_preset.prefix.text = "[INFO] ";
-    info_preset.suffix.text = "\n";
     ts::addPreset("info", info_preset);
 
     // Preset for success messages
     ts::PresetConfig success_preset;
-    success_preset.prefix.prestyles = {ts::Codes::BRIGHT, ts::Codes::FOREGROUND_GREEN};
+    success_preset.prefix.prestyles = {ts::Color(ts::Codes::BRIGHT), ts::Color(ts::Codes::FOREGROUND_GREEN)};
     success_preset.prefix.text = "[SUCCESS] ";
-    success_preset.suffix.text = "\n";
     ts::addPreset("success", success_preset);
 }
 

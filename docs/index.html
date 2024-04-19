@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">termstyle<span id="projectnumber">&#160;1.0.0-pre.2</span>
+   <div id="projectname">termstyle<span id="projectnumber">&#160;1.0.0-pre.3</span>
    </div>
    <div id="projectbrief">An open-source C++ header file that enables developers to easily define and apply customizable style presets for terminal outputs such as warnings, infos, and errors.</div>
   </td>
@@ -95,18 +95,21 @@ $(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">termstyle </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> </p><div align="center"></div><div align="center"><img src="https://github.com/mrmagic2020/termstyle/blob/main/assets/banner.png?raw=true" alt="banner" width="500" class="inline"/></div><div align="center"></div><p>An open-source C++ header file that enables developers to easily define and apply customizable style presets for terminal outputs such as warnings, infos, and errors.</p>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> </p><div align="center"></div><div align="center"><img src="https://github.com/mrmagic2020/termstyle/blob/main/assets/banner.png?raw=true" alt="banner" width="500" class="inline"/></div><div align="center"></div><div align="center"><img src="https://img.shields.io/github/license/mrmagic2020/termstyle" alt="GitHub License" class="inline"/> <img src="https://img.shields.io/github/release-date-pre/mrmagic2020/termstyle" alt="GitHub Release Date" class="inline"/> <img src="https://img.shields.io/github/v/tag/mrmagic2020/termstyle" alt="GitHub Tag" class="inline"/></div><div align="center"></div><p>An open-source C++ library that enables developers to easily define and apply customizable style presets for terminal outputs such as warnings, infos, and errors.</p>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Features</h1>
 <ul>
+<li>Cross-platform. (Tested on macOS, Windows, and Ubuntu)</li>
 <li>Header-only.</li>
-<li>Customized style presets.</li>
+<li>Customizable style presets.</li>
 <li>Supports ANSI Colors and Styles.</li>
+<li>Supports 256 Color Codes.</li>
+<li>Supports RGB Colors.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Usage</h1>
-<p>Documentation <a href="https://mrmagic2020.github.io/termstyle/index.html">here</a>.</p>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<p>Full documentation <a href="https://mrmagic2020.github.io/termstyle/index.html">here</a>.</p>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Creating a preset</h2>
 <p>Preset configurations are constructed with <code><a class="el" href="structtermstyle_1_1_preset_config.html" title="Struct for storing preset configurations.">termstyle::PresetConfig</a></code>.</p>
 <div class="fragment"><div class="line"><span class="keyword">struct </span>PresetConfig</div>
@@ -123,13 +126,13 @@ Creating a preset</h2>
 <p>And a <code>termstyle::config</code> struct.</p>
 <p>A <code>StyleString</code> struct looks like</p>
 <div class="fragment"><div class="line"><span class="keyword">struct </span>StyleString</div>
-<div class="line">    {</div>
-<div class="line">        std::string text = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        std::vector&lt;Codes&gt; prestyles = {};</div>
-<div class="line">        std::vector&lt;Codes&gt; poststyles = {};</div>
-<div class="line">        std::vector&lt;Col256&gt; prestlye256 = {};</div>
-<div class="line">        std::vector&lt;Col256&gt; poststyle256 = {};</div>
-<div class="line">    };</div>
+<div class="line">{</div>
+<div class="line">    std::string text = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">    std::vector&lt;Color&gt; prestyles = {};</div>
+<div class="line"> </div>
+<div class="line">    std::vector&lt;Color&gt; poststyles = {};</div>
+<div class="line">};</div>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>&zwj;Do NOT include a new line character <code>\n</code> in your suffix. Instead, adjust the <code>config</code> to your needs. </p>
 </blockquote>
@@ -137,43 +140,43 @@ Creating a preset</h2>
 <div class="fragment"><div class="line"><span class="keyword">struct </span>Config</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">bool</span> leading_restore = <span class="keyword">true</span>;</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> trailing_restore = <span class="keyword">true</span>;</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> trailing_newline = <span class="keyword">true</span>;</div>
 <div class="line">};</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md15"></a>
 Example</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="termstyle_8hpp.html">./include/termstyle.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../include/termstyle.hpp&quot;</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetermstyle.html">ts</a> = <a class="code hl_namespace" href="namespacetermstyle.html">termstyle</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    <a class="code hl_struct" href="structtermstyle_1_1_preset_config.html">ts::PresetConfig</a> debug_preset = {</div>
-<div class="line">        .prefix = {</div>
-<div class="line">            .<a class="code hl_variable" href="structtermstyle_1_1_style_string.html#ae48320a63a8c75dd7807f2d79642e0f2">prestyles</a> = {ts::Codes::DIM, ts::Codes::FOREGROUND_CYAN},</div>
-<div class="line">            .text = <span class="stringliteral">&quot;[DEBUG] &quot;</span>,</div>
-<div class="line">            .poststyles = {ts::Codes::DIM_RESET}</div>
-<div class="line">        },</div>
-<div class="line">        .suffix = {</div>
-<div class="line">            .text = <span class="stringliteral">&quot;\n&quot;</span> <span class="comment">// prestyles and poststyles are omitted</span></div>
+<div class="line">        .<a class="code hl_variable" href="structtermstyle_1_1_preset_config.html#ad8eb63268b975baf11e6e0884cd7e8a8">prefix</a> = {</div>
+<div class="line">            .<a class="code hl_variable" href="structtermstyle_1_1_style_string.html#ab6cfdf27cb1c6a83c931a15fe26aa658">text</a> = <span class="stringliteral">&quot;[DEBUG] &quot;</span>,</div>
+<div class="line">            .prestyles = {<a class="code hl_struct" href="structtermstyle_1_1_color.html">ts::Color</a>(ts::Codes::DIM), <a class="code hl_struct" href="structtermstyle_1_1_color.html">ts::Color</a>(ts::Codes::FOREGROUND_CYAN)},</div>
+<div class="line">            .poststyles = {<a class="code hl_struct" href="structtermstyle_1_1_color.html">ts::Color</a>(ts::Codes::DIM_RESET)}</div>
 <div class="line">        }</div>
 <div class="line">    };</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespacetermstyle_html"><div class="ttname"><a href="namespacetermstyle.html">termstyle</a></div><div class="ttdoc">Namespace for the termstyle library.</div><div class="ttdef"><b>Definition</b> termstyle.hpp:116</div></div>
-<div class="ttc" id="astructtermstyle_1_1_preset_config_html"><div class="ttname"><a href="structtermstyle_1_1_preset_config.html">termstyle::PresetConfig</a></div><div class="ttdoc">Struct for storing preset configurations.</div><div class="ttdef"><b>Definition</b> termstyle.hpp:338</div></div>
-<div class="ttc" id="astructtermstyle_1_1_style_string_html_ae48320a63a8c75dd7807f2d79642e0f2"><div class="ttname"><a href="structtermstyle_1_1_style_string.html#ae48320a63a8c75dd7807f2d79642e0f2">termstyle::StyleString::prestyles</a></div><div class="ttdeci">std::vector&lt; Codes &gt; prestyles</div><div class="ttdef"><b>Definition</b> termstyle.hpp:313</div></div>
-<div class="ttc" id="atermstyle_8hpp_html"><div class="ttname"><a href="termstyle_8hpp.html">termstyle.hpp</a></div><div class="ttdoc">Header file for the termstyle library.</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md11"></a>
+<div class="ttc" id="astructtermstyle_1_1_color_html"><div class="ttname"><a href="structtermstyle_1_1_color.html">termstyle::Color</a></div><div class="ttdoc">Struct for storing different types of colors.</div><div class="ttdef"><b>Definition</b> termstyle.hpp:384</div></div>
+<div class="ttc" id="astructtermstyle_1_1_preset_config_html"><div class="ttname"><a href="structtermstyle_1_1_preset_config.html">termstyle::PresetConfig</a></div><div class="ttdoc">Struct for storing preset configurations.</div><div class="ttdef"><b>Definition</b> termstyle.hpp:512</div></div>
+<div class="ttc" id="astructtermstyle_1_1_preset_config_html_ad8eb63268b975baf11e6e0884cd7e8a8"><div class="ttname"><a href="structtermstyle_1_1_preset_config.html#ad8eb63268b975baf11e6e0884cd7e8a8">termstyle::PresetConfig::prefix</a></div><div class="ttdeci">StyleString prefix</div><div class="ttdef"><b>Definition</b> termstyle.hpp:514</div></div>
+<div class="ttc" id="astructtermstyle_1_1_style_string_html_ab6cfdf27cb1c6a83c931a15fe26aa658"><div class="ttname"><a href="structtermstyle_1_1_style_string.html#ab6cfdf27cb1c6a83c931a15fe26aa658">termstyle::StyleString::text</a></div><div class="ttdeci">std::string text</div><div class="ttdef"><b>Definition</b> termstyle.hpp:421</div></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md16"></a>
 Registering a preset</h2>
 <p>After creating a preset, you nned to register it for use. Simply call</p>
-<div class="fragment"><div class="line"><a class="code hl_function" href="namespacetermstyle.html#a90ea82b60e4933afa367136a048fb71a">termstyle::addPreset</a>(std::string name, <a class="code hl_struct" href="structtermstyle_1_1_preset_config.html">termstyle::PresetConfig</a> config)</div>
-<div class="ttc" id="anamespacetermstyle_html_a90ea82b60e4933afa367136a048fb71a"><div class="ttname"><a href="namespacetermstyle.html#a90ea82b60e4933afa367136a048fb71a">termstyle::addPreset</a></div><div class="ttdeci">void addPreset(std::string name, PresetConfig preset)</div><div class="ttdoc">Adds a preset with the given name and configuration.</div><div class="ttdef"><b>Definition</b> termstyle.hpp:464</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="group___construct__group.html#ga90ea82b60e4933afa367136a048fb71a">termstyle::addPreset</a>(std::string name, <a class="code hl_struct" href="structtermstyle_1_1_preset_config.html">termstyle::PresetConfig</a> config)</div>
+<div class="ttc" id="agroup___construct__group_html_ga90ea82b60e4933afa367136a048fb71a"><div class="ttname"><a href="group___construct__group.html#ga90ea82b60e4933afa367136a048fb71a">termstyle::addPreset</a></div><div class="ttdeci">void addPreset(std::string name, PresetConfig preset)</div><div class="ttdoc">Adds a preset with the given name and configuration.</div><div class="ttdef"><b>Definition</b> termstyle.hpp:634</div></div>
 </div><!-- fragment --><ul>
 <li><code>name</code> is what you want to name the preset. Must be unique, or an error will be thrown.</li>
 <li><code>config</code> is the preset you just created.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="autotoc_md17"></a>
 Example</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="termstyle_8hpp.html">./include/termstyle.hpp</a>&quot;</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetermstyle.html">ts</a> = <a class="code hl_namespace" href="namespacetermstyle.html">termstyle</a>;</div>
@@ -181,14 +184,15 @@ Example</h3>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    <a class="code hl_struct" href="structtermstyle_1_1_preset_config.html">ts::PresetConfig</a> debug_preset = { ... };</div>
-<div class="line">    <a class="code hl_function" href="namespacetermstyle.html#a90ea82b60e4933afa367136a048fb71a">ts::addPreset</a>(<span class="stringliteral">&quot;debug&quot;</span>, debug_preset);</div>
+<div class="line">    <a class="code hl_function" href="group___construct__group.html#ga90ea82b60e4933afa367136a048fb71a">ts::addPreset</a>(<span class="stringliteral">&quot;debug&quot;</span>, debug_preset);</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md13"></a>
+<div class="ttc" id="atermstyle_8hpp_html"><div class="ttname"><a href="termstyle_8hpp.html">termstyle.hpp</a></div><div class="ttdoc">Header file for the termstyle library.</div></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md18"></a>
 Using a preset</h2>
 <p>Finally, you can use the preset you created to print output to the terminal. There are two ways do to it:</p>
 <ol type="1">
-<li>Call <code><a class="el" href="namespacetermstyle.html#a5291f41cbd1f184e612f421343497a41">termstyle::print(std::string name, std::string msg)</a>;</code><ul>
+<li>Call <code><a class="el" href="group___preset_use__group.html#ga5291f41cbd1f184e612f421343497a41">termstyle::print(std::string name, std::string msg)</a>;</code><ul>
 <li><code>name</code> is the name of the preset you registered before.</li>
 <li><code>msg</code> is the content you want to print.</li>
 </ul>
@@ -202,7 +206,7 @@ Using a preset</h2>
 <blockquote class="doxtable">
 <p>&zwj;Note that <code>suffix</code> in this case will be applied after the last <code>msg</code> of the line. </p>
 </blockquote>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="autotoc_md19"></a>
 Example</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="termstyle_8hpp.html">./include/termstyle.hpp</a>&quot;</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetermstyle.html">ts</a> = <a class="code hl_namespace" href="namespacetermstyle.html">termstyle</a>;</div>
@@ -210,20 +214,20 @@ Example</h3>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    <a class="code hl_struct" href="structtermstyle_1_1_preset_config.html">ts::PresetConfig</a> debug_preset = { ... };</div>
-<div class="line">    <a class="code hl_function" href="namespacetermstyle.html#a90ea82b60e4933afa367136a048fb71a">ts::addPreset</a>(<span class="stringliteral">&quot;debug&quot;</span>, debug_preset);</div>
+<div class="line">    <a class="code hl_function" href="group___construct__group.html#ga90ea82b60e4933afa367136a048fb71a">ts::addPreset</a>(<span class="stringliteral">&quot;debug&quot;</span>, debug_preset);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Method 1</span></div>
-<div class="line">    <a class="code hl_function" href="namespacetermstyle.html#a5291f41cbd1f184e612f421343497a41">ts::print</a>(<span class="stringliteral">&quot;debug&quot;</span>, <span class="stringliteral">&quot;This is a debug message.&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="group___preset_use__group.html#ga5291f41cbd1f184e612f421343497a41">ts::print</a>(<span class="stringliteral">&quot;debug&quot;</span>, <span class="stringliteral">&quot;This is a debug message.&quot;</span>);</div>
 <div class="line">    <span class="comment">// Method 2</span></div>
-<div class="line">    <a class="code hl_function" href="namespacetermstyle.html#adc9b81309bb371263cf81f9c3a42eacf">ts::style</a>(<span class="stringliteral">&quot;debug&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;This is another debug message. &quot;</span> &lt;&lt; <span class="stringliteral">&quot;Suffix is applied after me.&quot;</span>;</div>
+<div class="line">    <a class="code hl_function" href="group___preset_use__group.html#gadc9b81309bb371263cf81f9c3a42eacf">ts::style</a>(<span class="stringliteral">&quot;debug&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;This is another debug message. &quot;</span> &lt;&lt; <span class="stringliteral">&quot;Suffix is applied after me.&quot;</span>;</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespacetermstyle_html_a5291f41cbd1f184e612f421343497a41"><div class="ttname"><a href="namespacetermstyle.html#a5291f41cbd1f184e612f421343497a41">termstyle::print</a></div><div class="ttdeci">void print(std::string preset, std::string text=&quot;&quot;)</div><div class="ttdef"><b>Definition</b> termstyle.hpp:490</div></div>
-<div class="ttc" id="anamespacetermstyle_html_adc9b81309bb371263cf81f9c3a42eacf"><div class="ttname"><a href="namespacetermstyle.html#adc9b81309bb371263cf81f9c3a42eacf">termstyle::style</a></div><div class="ttdeci">StyledCout style(const std::string &amp;preset)</div><div class="ttdef"><b>Definition</b> termstyle.hpp:447</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md15"></a>
+<div class="ttc" id="agroup___preset_use__group_html_ga5291f41cbd1f184e612f421343497a41"><div class="ttname"><a href="group___preset_use__group.html#ga5291f41cbd1f184e612f421343497a41">termstyle::print</a></div><div class="ttdeci">void print(std::string preset, std::string text=&quot;&quot;)</div><div class="ttdef"><b>Definition</b> termstyle.hpp:666</div></div>
+<div class="ttc" id="agroup___preset_use__group_html_gadc9b81309bb371263cf81f9c3a42eacf"><div class="ttname"><a href="group___preset_use__group.html#gadc9b81309bb371263cf81f9c3a42eacf">termstyle::style</a></div><div class="ttdeci">StyledCout style(const std::string &amp;preset)</div><div class="ttdef"><b>Definition</b> termstyle.hpp:717</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md20"></a>
 Examples</h1>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 Basic usage</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="termstyle_8hpp.html">./include/termstyle.hpp</a>&quot;</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetermstyle.html">ts</a> = <a class="code hl_namespace" href="namespacetermstyle.html">termstyle</a>;</div>
@@ -231,27 +235,22 @@ Basic usage</h2>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    <a class="code hl_struct" href="structtermstyle_1_1_preset_config.html">ts::PresetConfig</a> debug_preset = {</div>
-<div class="line">        .prefix = {</div>
+<div class="line">        .<a class="code hl_variable" href="structtermstyle_1_1_preset_config.html#ad8eb63268b975baf11e6e0884cd7e8a8">prefix</a> = {</div>
 <div class="line">            .<a class="code hl_variable" href="structtermstyle_1_1_style_string.html#ab6cfdf27cb1c6a83c931a15fe26aa658">text</a> = <span class="stringliteral">&quot;[DEBUG] &quot;</span>,</div>
-<div class="line">            .prestyles = {ts::Codes::DIM, ts::Codes::FOREGROUND_CYAN},</div>
-<div class="line">            .poststyles = {ts::Codes::DIM_RESET}</div>
-<div class="line">        },</div>
-<div class="line">        .suffix = {</div>
-<div class="line">            .text = <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line">            .prestyles = {<a class="code hl_struct" href="structtermstyle_1_1_color.html">ts::Color</a>(ts::Codes::DIM), <a class="code hl_struct" href="structtermstyle_1_1_color.html">ts::Color</a>(ts::Codes::FOREGROUND_CYAN)},</div>
+<div class="line">            .poststyles = {<a class="code hl_struct" href="structtermstyle_1_1_color.html">ts::Color</a>(ts::Codes::DIM_RESET)}</div>
 <div class="line">        }</div>
 <div class="line">    };</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_function" href="namespacetermstyle.html#a90ea82b60e4933afa367136a048fb71a">ts::addPreset</a>(<span class="stringliteral">&quot;debug&quot;</span>, debug_preset);</div>
-<div class="line">    <a class="code hl_function" href="namespacetermstyle.html#a5291f41cbd1f184e612f421343497a41">ts::print</a>(<span class="stringliteral">&quot;debug&quot;</span>, <span class="stringliteral">&quot;This is a debug message printed using termstyle::print.&quot;</span>);</div>
-<div class="line">    <a class="code hl_function" href="namespacetermstyle.html#adc9b81309bb371263cf81f9c3a42eacf">ts::style</a>(<span class="stringliteral">&quot;debug&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;This is a debug message printed using termstyle::style.&quot;</span>;</div>
+<div class="line">    <a class="code hl_function" href="group___construct__group.html#ga90ea82b60e4933afa367136a048fb71a">ts::addPreset</a>(<span class="stringliteral">&quot;debug&quot;</span>, debug_preset);</div>
+<div class="line">    <a class="code hl_function" href="group___preset_use__group.html#ga5291f41cbd1f184e612f421343497a41">ts::print</a>(<span class="stringliteral">&quot;debug&quot;</span>, <span class="stringliteral">&quot;This is a debug message printed using termstyle::print.&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="group___preset_use__group.html#gadc9b81309bb371263cf81f9c3a42eacf">ts::style</a>(<span class="stringliteral">&quot;debug&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;This is a debug message printed using termstyle::style.&quot;</span>;</div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="astructtermstyle_1_1_style_string_html_ab6cfdf27cb1c6a83c931a15fe26aa658"><div class="ttname"><a href="structtermstyle_1_1_style_string.html#ab6cfdf27cb1c6a83c931a15fe26aa658">termstyle::StyleString::text</a></div><div class="ttdeci">std::string text</div><div class="ttdef"><b>Definition</b> termstyle.hpp:307</div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md17"></a>
-Output</h3>
+</div><!-- fragment --><p>Output</p>
 <p><img src="https://github.com/mrmagic2020/termstyle/blob/main/assets/basic-usage-output.png?raw=true" alt="basic-usage-output" width="750" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Color256</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;../include/termstyle.hpp&quot;</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetermstyle.html">ts</a> = <a class="code hl_namespace" href="namespacetermstyle.html">termstyle</a>;</div>
@@ -262,28 +261,58 @@ Color256</h2>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 256; i++)</div>
 <div class="line">    {</div>
 <div class="line">        <a class="code hl_struct" href="structtermstyle_1_1_preset_config.html">ts::PresetConfig</a> config = {</div>
-<div class="line">            .prefix = {</div>
-<div class="line">                .<a class="code hl_variable" href="structtermstyle_1_1_style_string.html#ab59899d7e8f651f5d92f1a45c9b49e28">prestlye256</a> = {<a class="code hl_struct" href="structtermstyle_1_1_col256.html">ts::Col256</a>(ts::ColorMode::FOREGROUND, i)},</div>
+<div class="line">            .<a class="code hl_variable" href="structtermstyle_1_1_preset_config.html#ad8eb63268b975baf11e6e0884cd7e8a8">prefix</a> = {</div>
+<div class="line">                .<a class="code hl_variable" href="structtermstyle_1_1_style_string.html#a037cb36521451016ad033552dafbdeb6">prestyles</a> = {<a class="code hl_struct" href="structtermstyle_1_1_color.html">ts::Color</a>(<a class="code hl_struct" href="structtermstyle_1_1_col256.html">ts::Col256</a>(ts::ColorMode::FOREGROUND, i))},</div>
 <div class="line">                .text = <span class="stringliteral">&quot;[Color #&quot;</span> + std::to_string(i) + <span class="stringliteral">&quot;]&quot;</span>,</div>
-<div class="line">                .poststyles = {ts::Codes::RESTORE},</div>
-<div class="line">                .poststyle256 = {<a class="code hl_struct" href="structtermstyle_1_1_col256.html">ts::Col256</a>(ts::ColorMode::BACKGROUND, i)}</div>
+<div class="line">                .poststyles = {<a class="code hl_struct" href="structtermstyle_1_1_color.html">ts::Color</a>(ts::Codes::RESTORE), <a class="code hl_struct" href="structtermstyle_1_1_color.html">ts::Color</a>(<a class="code hl_struct" href="structtermstyle_1_1_col256.html">ts::Col256</a>(ts::ColorMode::BACKGROUND, i))}</div>
 <div class="line">            }</div>
 <div class="line">        };</div>
-<div class="line">        <a class="code hl_function" href="namespacetermstyle.html#a90ea82b60e4933afa367136a048fb71a">ts::addPreset</a>(<span class="stringliteral">&quot;color&quot;</span> + std::to_string(i), config);</div>
+<div class="line">        <a class="code hl_function" href="group___construct__group.html#ga90ea82b60e4933afa367136a048fb71a">ts::addPreset</a>(<span class="stringliteral">&quot;color&quot;</span> + std::to_string(i), config);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 256; i++)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="namespacetermstyle.html#a5291f41cbd1f184e612f421343497a41">ts::print</a>(<span class="stringliteral">&quot;color&quot;</span> + std::to_string(i), <span class="stringliteral">&quot;                    &quot;</span>);</div>
+<div class="line">        <a class="code hl_function" href="group___preset_use__group.html#ga5291f41cbd1f184e612f421343497a41">ts::print</a>(<span class="stringliteral">&quot;color&quot;</span> + std::to_string(i), <span class="stringliteral">&quot;                    &quot;</span>);</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="astructtermstyle_1_1_col256_html"><div class="ttname"><a href="structtermstyle_1_1_col256.html">termstyle::Col256</a></div><div class="ttdoc">Struct for storing 256-color codes.</div><div class="ttdef"><b>Definition</b> termstyle.hpp:254</div></div>
-<div class="ttc" id="astructtermstyle_1_1_style_string_html_ab59899d7e8f651f5d92f1a45c9b49e28"><div class="ttname"><a href="structtermstyle_1_1_style_string.html#ab59899d7e8f651f5d92f1a45c9b49e28">termstyle::StyleString::prestlye256</a></div><div class="ttdeci">std::vector&lt; Col256 &gt; prestlye256</div><div class="ttdef"><b>Definition</b> termstyle.hpp:325</div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md19"></a>
+<div class="ttc" id="astructtermstyle_1_1_col256_html"><div class="ttname"><a href="structtermstyle_1_1_col256.html">termstyle::Col256</a></div><div class="ttdoc">Struct for storing 256-color codes.</div><div class="ttdef"><b>Definition</b> termstyle.hpp:258</div></div>
+<div class="ttc" id="astructtermstyle_1_1_style_string_html_a037cb36521451016ad033552dafbdeb6"><div class="ttname"><a href="structtermstyle_1_1_style_string.html#a037cb36521451016ad033552dafbdeb6">termstyle::StyleString::prestyles</a></div><div class="ttdeci">std::vector&lt; Color &gt; prestyles</div><div class="ttdef"><b>Definition</b> termstyle.hpp:428</div></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md23"></a>
 Output</h3>
 <p><img src="https://github.com/mrmagic2020/termstyle/blob/main/assets/col256-output.png?raw=true" alt="color256-output" width="300" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
+RGB Colors</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;../include/termstyle.hpp&quot;</span></div>
+<div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetermstyle.html">ts</a> = <a class="code hl_namespace" href="namespacetermstyle.html">termstyle</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> r, g, b;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Enter RGB values (0-255): &quot;</span>;</div>
+<div class="line">    std::cin &gt;&gt; r &gt;&gt; g &gt;&gt; b;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structtermstyle_1_1_preset_config.html">ts::PresetConfig</a> rgb_preset = {</div>
+<div class="line">        .<a class="code hl_variable" href="structtermstyle_1_1_preset_config.html#ad8eb63268b975baf11e6e0884cd7e8a8">prefix</a> = {</div>
+<div class="line">            .<a class="code hl_variable" href="structtermstyle_1_1_style_string.html#ab6cfdf27cb1c6a83c931a15fe26aa658">text</a> = <span class="stringliteral">&quot;R=&quot;</span> + std::to_string(r) + <span class="stringliteral">&quot; G=&quot;</span> + std::to_string(g) + <span class="stringliteral">&quot; B=&quot;</span> + std::to_string(b) + <span class="stringliteral">&quot;: &quot;</span>,</div>
+<div class="line">            .prestyles = {<a class="code hl_struct" href="structtermstyle_1_1_color.html">ts::Color</a>(<a class="code hl_struct" href="structtermstyle_1_1_col_r_g_b.html">ts::ColRGB</a>(ts::ColorMode::FOREGROUND, r, g, b))}</div>
+<div class="line">        },</div>
+<div class="line">        .suffix = {</div>
+<div class="line">            .text = <span class="stringliteral">&quot;                              &quot;</span>,</div>
+<div class="line">            .prestyles = {<a class="code hl_struct" href="structtermstyle_1_1_color.html">ts::Color</a>(<a class="code hl_struct" href="structtermstyle_1_1_col_r_g_b.html">ts::ColRGB</a>(ts::ColorMode::BACKGROUND, r, g, b))}</div>
+<div class="line">        }</div>
+<div class="line">    };</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_function" href="group___construct__group.html#ga90ea82b60e4933afa367136a048fb71a">ts::addPreset</a>(<span class="stringliteral">&quot;rgb&quot;</span>, rgb_preset);</div>
+<div class="line">    <a class="code hl_function" href="group___preset_use__group.html#ga5291f41cbd1f184e612f421343497a41">ts::print</a>(<span class="stringliteral">&quot;rgb&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="astructtermstyle_1_1_col_r_g_b_html"><div class="ttname"><a href="structtermstyle_1_1_col_r_g_b.html">termstyle::ColRGB</a></div><div class="ttdoc">Struct for storing RGB color codes.</div><div class="ttdef"><b>Definition</b> termstyle.hpp:332</div></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md25"></a>
+Output</h3>
+<p><img src="https://github.com/mrmagic2020/termstyle/blob/main/assets/colrgb-output.png?raw=true" alt="colrgb-output" width="750" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Fancy Input</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;../include/termstyle.hpp&quot;</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetermstyle.html">ts</a> = <a class="code hl_namespace" href="namespacetermstyle.html">termstyle</a>;</div>
@@ -291,7 +320,7 @@ Fancy Input</h2>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    <a class="code hl_struct" href="structtermstyle_1_1_preset_config.html">ts::PresetConfig</a> input_preset = {</div>
-<div class="line">        .prefix = {</div>
+<div class="line">        .<a class="code hl_variable" href="structtermstyle_1_1_preset_config.html#ad8eb63268b975baf11e6e0884cd7e8a8">prefix</a> = {</div>
 <div class="line">            .<a class="code hl_variable" href="structtermstyle_1_1_style_string.html#ab6cfdf27cb1c6a83c931a15fe26aa658">text</a> = <span class="stringliteral">&quot;Whatever you type will have a green background&quot;</span>,</div>
 <div class="line">        },</div>
 <div class="line">        .suffix = {</div>
@@ -305,16 +334,16 @@ Fancy Input</h2>
 <div class="line">        }</div>
 <div class="line">    };</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_function" href="namespacetermstyle.html#a90ea82b60e4933afa367136a048fb71a">ts::addPreset</a>(<span class="stringliteral">&quot;input&quot;</span>, input_preset);</div>
+<div class="line">    <a class="code hl_function" href="group___construct__group.html#ga90ea82b60e4933afa367136a048fb71a">ts::addPreset</a>(<span class="stringliteral">&quot;input&quot;</span>, input_preset);</div>
 <div class="line">    std::string input;</div>
-<div class="line">    <a class="code hl_function" href="namespacetermstyle.html#a5291f41cbd1f184e612f421343497a41">ts::print</a>(<span class="stringliteral">&quot;input&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="group___preset_use__group.html#ga5291f41cbd1f184e612f421343497a41">ts::print</a>(<span class="stringliteral">&quot;input&quot;</span>);</div>
 <div class="line">    std::getline(std::cin, input);</div>
-<div class="line">    <a class="code hl_function" href="namespacetermstyle.html#adc9b81309bb371263cf81f9c3a42eacf">ts::style</a>(<span class="stringliteral">&quot;input&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="group___preset_use__group.html#gadc9b81309bb371263cf81f9c3a42eacf">ts::style</a>(<span class="stringliteral">&quot;input&quot;</span>);</div>
 <div class="line">    std::getline(std::cin, input);</div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md21"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md27"></a>
 Output</h3>
 <p><img src="https://github.com/mrmagic2020/termstyle/blob/main/assets/fancy-input-output.png?raw=true" alt="fancy-input-output" width="750" class="inline"/> </p>
 </div></div><!-- PageDoc -->

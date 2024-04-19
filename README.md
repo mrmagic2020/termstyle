@@ -16,6 +16,8 @@ An open-source C++ library that enables developers to easily define and apply cu
 
 ## Features
 
+- Cross-platform. (Tested on macOS, Windows, and Ubuntu)
+
 - Header-only.
 
 - Customizable style presets.
@@ -24,9 +26,11 @@ An open-source C++ library that enables developers to easily define and apply cu
 
 - Supports 256 Color Codes.
 
+- Supports RGB Colors.
+
 ## Usage
 
-Documentation [here](https://mrmagic2020.github.io/termstyle/index.html).
+Full documentation [here](https://mrmagic2020.github.io/termstyle/index.html).
 
 ### Creating a preset
 
@@ -53,36 +57,26 @@ A `StyleString` struct looks like
 
 ```hpp
 struct StyleString
-    {
-        /**
-         * The text to be styled.
-        */
-        std::string text = "";
-        /**
-         * A vector container that stores objects of type Codes, applied before `text`.
-         * 
-         * @see Codes
-         */
-        std::vector<Codes> prestyles = {};
-        /**
-         * A vector container that stores objects of type Codes, applied after `text`.
-         * 
-         * @see Codes
-        */
-        std::vector<Codes> poststyles = {};
-        /**
-         * A vector container that stores objects of type Col256, applied before `text`.
-         * 
-         * @see Col256
-        */
-        std::vector<Col256> prestlye256 = {};
-        /**
-         * A vector container that stores objects of type Col256, applied after `text`.
-         * 
-         * @see Col256
-        */
-        std::vector<Col256> poststyle256 = {};
-    };
+{
+    /**
+    * The text to be styled.
+    */
+    std::string text = "";
+
+    /**
+    * A vector container that stores objects of type Color, applied before `text`.
+    * 
+    * @see Color
+    */
+    std::vector<Color> prestyles = {};
+
+    /**
+    * A vector container that stores objects of type Color, applied after `text`.
+    * 
+    * @see Color
+    */
+    std::vector<Color> poststyles = {};
+};
 ```
 
 > Do NOT include a new line character `\n` in your suffix. Instead, adjust the `config` to your needs.
@@ -90,28 +84,29 @@ struct StyleString
 A `Config` struct looks like
 
 ```hpp
-    struct Config
-    {
-        /**
-         * Indicates whether leading restore is enabled or not.
-         * If set to true, it means that leading restore is enabled.
-         * If set to false, leading restore is disabled.
-         */
-        bool leading_restore = true;
-        /**
-         * Indicates whether trailing restore is enabled or not.
-         * If set to true, trailing restore will be performed.
-         * If set to false, trailing restore will be skipped.
-         */
-        bool trailing_restore = true;
+struct Config
+{
+    /**
+    * Indicates whether leading restore is enabled or not.
+    * If set to true, it means that leading restore is enabled.
+    * If set to false, leading restore is disabled.
+    */
+    bool leading_restore = true;
 
-        /**
-         * Specifies whether a trailing newline character should be added when printing.
-         * If set to true, a newline character will be added at the end of the printed output.
-         * If set to false, no newline character will be added.
-         */
-        bool trailing_newline = true;
-    };
+    /**
+    * Indicates whether trailing restore is enabled or not.
+    * If set to true, trailing restore will be performed.
+    * If set to false, trailing restore will be skipped.
+    */
+    bool trailing_restore = true;
+
+    /**
+    * Specifies whether a trailing newline character should be added when printing.
+    * If set to true, a newline character will be added at the end of the printed output.
+    * If set to false, no newline character will be added.
+    */
+    bool trailing_newline = true;
+};
 ```
 
 #### Example
@@ -125,12 +120,9 @@ int main()
 {
     ts::PresetConfig debug_preset = {
         .prefix = {
-            .prestyles = {ts::Codes::DIM, ts::Codes::FOREGROUND_CYAN},
             .text = "[DEBUG] ",
-            .poststyles = {ts::Codes::DIM_RESET}
-        },
-        .suffix = {
-            .text = "\n" // prestyles and poststyles are omitted
+            .prestyles = {ts::Color(ts::Codes::DIM), ts::Color(ts::Codes::FOREGROUND_CYAN)},
+            .poststyles = {ts::Color(ts::Codes::DIM_RESET)}
         }
     };
     return 0;
@@ -214,13 +206,10 @@ int main()
     ts::PresetConfig debug_preset = {
         .prefix = {
             .text = "[DEBUG] ",
-            .prestyles = {ts::Codes::DIM, ts::Codes::FOREGROUND_CYAN},
-            .poststyles = {ts::Codes::DIM_RESET}
-        },
-        .suffix = {
-            .text = "\n"
+            .prestyles = {ts::Color(ts::Codes::DIM), ts::Color(ts::Codes::FOREGROUND_CYAN)},
+            .poststyles = {ts::Color(ts::Codes::DIM_RESET)}
         }
-    }
+    };
 
     ts::addPreset("debug", debug_preset);
     ts::print("debug", "This is a debug message printed using termstyle::print.");
@@ -247,10 +236,9 @@ int main()
     {
         ts::PresetConfig config = {
             .prefix = {
-                .prestlye256 = {ts::Col256(ts::ColorMode::FOREGROUND, i)},
+                .prestyles = {ts::Color(ts::Col256(ts::ColorMode::FOREGROUND, i))},
                 .text = "[Color #" + std::to_string(i) + "]",
-                .poststyles = {ts::Codes::RESTORE},
-                .poststyle256 = {ts::Col256(ts::ColorMode::BACKGROUND, i)}
+                .poststyles = {ts::Color(ts::Codes::RESTORE), ts::Color(ts::Col256(ts::ColorMode::BACKGROUND, i))}
             }
         };
         ts::addPreset("color" + std::to_string(i), config);
@@ -267,6 +255,40 @@ int main()
 #### Output
 
 <img alt="color256-output" src="https://github.com/mrmagic2020/termstyle/blob/main/assets/col256-output.png?raw=true" width="300">
+
+### RGB Colors
+
+```cpp
+#include "../include/termstyle.hpp"
+namespace ts = termstyle;
+
+int main()
+{
+    int r, g, b;
+    std::cout << "Enter RGB values (0-255): ";
+    std::cin >> r >> g >> b;
+
+    ts::PresetConfig rgb_preset = {
+        .prefix = {
+            .text = "R=" + std::to_string(r) + " G=" + std::to_string(g) + " B=" + std::to_string(b) + ": ",
+            .prestyles = {ts::Color(ts::ColRGB(ts::ColorMode::FOREGROUND, r, g, b))}
+        },
+        .suffix = {
+            .text = "                              ",
+            .prestyles = {ts::Color(ts::ColRGB(ts::ColorMode::BACKGROUND, r, g, b))}
+        }
+    };
+
+    ts::addPreset("rgb", rgb_preset);
+    ts::print("rgb");
+    
+    return 0;
+}
+```
+
+#### Output
+
+<img alt="colrgb-output" src="https://github.com/mrmagic2020/termstyle/blob/main/assets/colrgb-output.png?raw=true" width="750">
 
 ### Fancy Input
 
