@@ -13,8 +13,8 @@ int main()
     {
         ts::PresetConfig config = {
             .prefix = {
-                .prestyles = {ts::Color(ts::Col256(ts::ColorMode::FOREGROUND, i))},
                 .text = "[Color #" + std::to_string(i) + "]",
+                .prestyles = {ts::Color(ts::Col256(ts::ColorMode::FOREGROUND, i))},
                 .poststyles = {ts::Color(ts::Codes::RESTORE), ts::Color(ts::Col256(ts::ColorMode::BACKGROUND, i))}
             }
         };
