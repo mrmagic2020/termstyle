@@ -1,3 +1,7 @@
+/**
+ * col256.cpp - tests 256-color terminal color presets
+*/
+
 #include "../include/termstyle.hpp"
 
 namespace ts = termstyle;
@@ -9,10 +13,9 @@ int main()
     {
         ts::PresetConfig config = {
             .prefix = {
-                .prestlye256 = {ts::Col256(ts::ColorMode::FOREGROUND, i)},
+                .prestyles = {ts::Color(ts::Col256(ts::ColorMode::FOREGROUND, i))},
                 .text = "[Color #" + std::to_string(i) + "]",
-                .poststyles = {ts::Codes::RESTORE},
-                .poststyle256 = {ts::Col256(ts::ColorMode::BACKGROUND, i)}
+                .poststyles = {ts::Color(ts::Codes::RESTORE), ts::Color(ts::Col256(ts::ColorMode::BACKGROUND, i))}
             }
         };
         ts::addPreset("color" + std::to_string(i), config);
