@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">termstyle<span id="projectnumber">&#160;1.0.0-pre.2</span>
+   <div id="projectname">termstyle<span id="projectnumber">&#160;1.0.0-pre.3</span>
    </div>
    <div id="projectbrief">An open-source C++ header file that enables developers to easily define and apply customizable style presets for terminal outputs such as warnings, infos, and errors.</div>
   </td>
@@ -126,14 +126,20 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bad_color_i_d.html">BadColorID</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtermstyle_1_1_config.html">termstyle::Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration namespace.  <a href="structtermstyle_1_1_config.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtermstyle_1_1_col256.html">termstyle::Col256</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct for storing 256-color codes.  <a href="structtermstyle_1_1_col256.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtermstyle_1_1_col_r_g_b.html">termstyle::ColRGB</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct for storing RGB color codes.  <a href="structtermstyle_1_1_col_r_g_b.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtermstyle_1_1_color.html">termstyle::Color</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct for storing different types of colors.  <a href="structtermstyle_1_1_color.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtermstyle_1_1_style_string.html">termstyle::StyleString</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct for storing styled strings.  <a href="structtermstyle_1_1_style_string.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtermstyle_1_1_config.html">termstyle::Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration namespace.  <a href="structtermstyle_1_1_config.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtermstyle_1_1_preset_config.html">termstyle::PresetConfig</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct for storing preset configurations.  <a href="structtermstyle_1_1_preset_config.html#details">More...</a><br /></td></tr>
@@ -178,7 +184,7 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a398f3b94d2c5301cda699ea1f4611bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga483e716a292eb17055b9d1632bc3e2f8" id="r_ga483e716a292eb17055b9d1632bc3e2f8"><td class="memItemLeft" align="right" valign="top"><a id="ga483e716a292eb17055b9d1632bc3e2f8" name="ga483e716a292eb17055b9d1632bc3e2f8"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___codes.html#ga483e716a292eb17055b9d1632bc3e2f8">termstyle::Codes</a> : int { <br />
+<tr class="memitem:ga483e716a292eb17055b9d1632bc3e2f8" id="r_ga483e716a292eb17055b9d1632bc3e2f8"><td class="memItemLeft" align="right" valign="top"><a id="ga483e716a292eb17055b9d1632bc3e2f8" name="ga483e716a292eb17055b9d1632bc3e2f8"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___col16__group.html#ga483e716a292eb17055b9d1632bc3e2f8">termstyle::Codes</a> : int { <br />
 &#160;&#160;<b>RESTORE</b> = 0
 , <b>BRIGHT</b> = 1
 , <b>DIM</b> = 2
@@ -231,6 +237,12 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a54162889540b042e89ba1cfaef40c1bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class for color modes. <br /></td></tr>
 <tr class="separator:a54162889540b042e89ba1cfaef40c1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f695223c4f701946d99fcf1577f3a86" id="r_a6f695223c4f701946d99fcf1577f3a86"><td class="memItemLeft" align="right" valign="top"><a id="a6f695223c4f701946d99fcf1577f3a86" name="a6f695223c4f701946d99fcf1577f3a86"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetermstyle.html#a6f695223c4f701946d99fcf1577f3a86">termstyle::ColorType</a> : int { <b>COL16</b> = 0
+, <b>COL256</b> = 1
+, <b>COLRGB</b> = 2
+ }</td></tr>
+<tr class="memdesc:a6f695223c4f701946d99fcf1577f3a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class for color types. <br /></td></tr>
+<tr class="separator:a6f695223c4f701946d99fcf1577f3a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac8137ddd7b22bd8b44bdbd83b2ec907" id="r_aac8137ddd7b22bd8b44bdbd83b2ec907"><td class="memItemLeft" align="right" valign="top"><a id="aac8137ddd7b22bd8b44bdbd83b2ec907" name="aac8137ddd7b22bd8b44bdbd83b2ec907"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetermstyle.html#aac8137ddd7b22bd8b44bdbd83b2ec907">termstyle::ParseMode</a> : int { <b>ALL</b> = 0
 , <b>PREFIX</b> = 1
 , <b>SUFFIX</b> = 2
@@ -241,22 +253,30 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:gaf81ff8310ccfdb964f85043689815e99" id="r_gaf81ff8310ccfdb964f85043689815e99"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:gaf81ff8310ccfdb964f85043689815e99"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___codes.html#gaf81ff8310ccfdb964f85043689815e99">termstyle::code2string</a> (const std::vector&lt; T &gt; &amp;codelist) noexcept</td></tr>
+<tr class="memitem:gaf81ff8310ccfdb964f85043689815e99"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___col16__group.html#gaf81ff8310ccfdb964f85043689815e99">termstyle::code2string</a> (const std::vector&lt; T &gt; &amp;codelist) noexcept</td></tr>
 <tr class="separator:gaf81ff8310ccfdb964f85043689815e99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3da712bc12b9a89917d79ec09c5fb72c" id="r_ga3da712bc12b9a89917d79ec09c5fb72c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__validate_color_i_d.html#ga3da712bc12b9a89917d79ec09c5fb72c">termstyle::validateColorID</a> (int ID)</td></tr>
+<tr class="memitem:ga8972e5efc7fdae138bc9e5e6d5a7e8d1" id="r_ga8972e5efc7fdae138bc9e5e6d5a7e8d1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___col16__group.html#ga8972e5efc7fdae138bc9e5e6d5a7e8d1">termstyle::code2string</a> (const <a class="el" href="group___col16__group.html#ga483e716a292eb17055b9d1632bc3e2f8">Codes</a> &amp;col)</td></tr>
+<tr class="separator:ga8972e5efc7fdae138bc9e5e6d5a7e8d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3da712bc12b9a89917d79ec09c5fb72c" id="r_ga3da712bc12b9a89917d79ec09c5fb72c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___col256__group.html#ga3da712bc12b9a89917d79ec09c5fb72c">termstyle::validateColorID</a> (int ID)</td></tr>
 <tr class="memdesc:ga3da712bc12b9a89917d79ec09c5fb72c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates a color 256 ID.  <br /></td></tr>
 <tr class="separator:ga3da712bc12b9a89917d79ec09c5fb72c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4cfe04ce3c67abe65542d9d259dae9da" id="r_ga4cfe04ce3c67abe65542d9d259dae9da"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__validate_color_i_d.html#ga4cfe04ce3c67abe65542d9d259dae9da">termstyle::col256_2string</a> (std::vector&lt; <a class="el" href="structtermstyle_1_1_col256.html">Col256</a> &gt; codelist) noexcept</td></tr>
+<tr class="memitem:ga4cfe04ce3c67abe65542d9d259dae9da" id="r_ga4cfe04ce3c67abe65542d9d259dae9da"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___col256__group.html#ga4cfe04ce3c67abe65542d9d259dae9da">termstyle::col256_2string</a> (std::vector&lt; <a class="el" href="structtermstyle_1_1_col256.html">Col256</a> &gt; codelist) noexcept</td></tr>
 <tr class="separator:ga4cfe04ce3c67abe65542d9d259dae9da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa4dc205a3d21eada888f57686c26921a" id="r_gaa4dc205a3d21eada888f57686c26921a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___col256__group.html#gaa4dc205a3d21eada888f57686c26921a">termstyle::col256_2string</a> (const <a class="el" href="structtermstyle_1_1_col256.html">Col256</a> &amp;col) noexcept</td></tr>
+<tr class="separator:gaa4dc205a3d21eada888f57686c26921a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5f6a721a8266de3639a5c22ac81ea46" id="r_gab5f6a721a8266de3639a5c22ac81ea46"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___col_r_g_b__group.html#gab5f6a721a8266de3639a5c22ac81ea46">termstyle::colrgb_2string</a> (const <a class="el" href="structtermstyle_1_1_col_r_g_b.html">ColRGB</a> &amp;col) noexcept</td></tr>
+<tr class="separator:gab5f6a721a8266de3639a5c22ac81ea46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04e642bb445e06fdb94d65587b28a333" id="r_a04e642bb445e06fdb94d65587b28a333"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetermstyle.html#a04e642bb445e06fdb94d65587b28a333">termstyle::parseColortype</a> (std::vector&lt; <a class="el" href="structtermstyle_1_1_color.html">Color</a> &gt; codelist) noexcept</td></tr>
+<tr class="separator:a04e642bb445e06fdb94d65587b28a333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7435efe03a30835c74430fe9be2dbccf" id="r_a7435efe03a30835c74430fe9be2dbccf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetermstyle.html#a7435efe03a30835c74430fe9be2dbccf">termstyle::parse</a> (const <a class="el" href="structtermstyle_1_1_preset_config.html">PresetConfig</a> &amp;preset, <a class="el" href="namespacetermstyle.html#aac8137ddd7b22bd8b44bdbd83b2ec907">ParseMode</a> mode=ParseMode::ALL) noexcept</td></tr>
 <tr class="separator:a7435efe03a30835c74430fe9be2dbccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc9b81309bb371263cf81f9c3a42eacf" id="r_adc9b81309bb371263cf81f9c3a42eacf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtermstyle_1_1_styled_cout.html">StyledCout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetermstyle.html#adc9b81309bb371263cf81f9c3a42eacf">termstyle::style</a> (const std::string &amp;preset)</td></tr>
-<tr class="separator:adc9b81309bb371263cf81f9c3a42eacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90ea82b60e4933afa367136a048fb71a" id="r_a90ea82b60e4933afa367136a048fb71a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetermstyle.html#a90ea82b60e4933afa367136a048fb71a">termstyle::addPreset</a> (std::string name, <a class="el" href="structtermstyle_1_1_preset_config.html">PresetConfig</a> preset)</td></tr>
-<tr class="memdesc:a90ea82b60e4933afa367136a048fb71a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a preset with the given name and configuration.  <br /></td></tr>
-<tr class="separator:a90ea82b60e4933afa367136a048fb71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5291f41cbd1f184e612f421343497a41" id="r_a5291f41cbd1f184e612f421343497a41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetermstyle.html#a5291f41cbd1f184e612f421343497a41">termstyle::print</a> (std::string preset, std::string text=&quot;&quot;)</td></tr>
-<tr class="separator:a5291f41cbd1f184e612f421343497a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90ea82b60e4933afa367136a048fb71a" id="r_ga90ea82b60e4933afa367136a048fb71a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___construct__group.html#ga90ea82b60e4933afa367136a048fb71a">termstyle::addPreset</a> (std::string name, <a class="el" href="structtermstyle_1_1_preset_config.html">PresetConfig</a> preset)</td></tr>
+<tr class="memdesc:ga90ea82b60e4933afa367136a048fb71a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a preset with the given name and configuration.  <br /></td></tr>
+<tr class="separator:ga90ea82b60e4933afa367136a048fb71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5291f41cbd1f184e612f421343497a41" id="r_ga5291f41cbd1f184e612f421343497a41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___preset_use__group.html#ga5291f41cbd1f184e612f421343497a41">termstyle::print</a> (std::string preset, std::string text=&quot;&quot;)</td></tr>
+<tr class="separator:ga5291f41cbd1f184e612f421343497a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadc9b81309bb371263cf81f9c3a42eacf" id="r_gadc9b81309bb371263cf81f9c3a42eacf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtermstyle_1_1_styled_cout.html">StyledCout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___preset_use__group.html#gadc9b81309bb371263cf81f9c3a42eacf">termstyle::style</a> (const std::string &amp;preset)</td></tr>
+<tr class="separator:gadc9b81309bb371263cf81f9c3a42eacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>

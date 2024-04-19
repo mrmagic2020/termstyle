@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['termstyle_0',['termstyle',['../index.html',1,'']]]
+  ['deprecated_20list_0',['Deprecated List',['../deprecated.html',1,'']]]
 ];

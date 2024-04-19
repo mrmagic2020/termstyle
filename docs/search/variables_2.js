@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mode_0',['mode',['../structtermstyle_1_1_col256.html#a80f1a6b440dbdf6a13a6248be9ac9f59',1,'termstyle::Col256']]]
+  ['leading_5frestore_0',['leading_restore',['../structtermstyle_1_1_config.html#a8c277c779ad1fde2489c653f88573731',1,'termstyle::Config']]]
 ];
