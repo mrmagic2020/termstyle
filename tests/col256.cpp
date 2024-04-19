@@ -9,9 +9,9 @@ int main()
     {
         ts::PresetConfig config = {
             .prefix = {
-                .prestlye256 = {ts::Col256(ts::ColorMode::FOREGROUND, i)},
                 .text = "[Color #" + std::to_string(i) + "]",
                 .poststyles = {ts::Codes::RESTORE},
+                .prestlye256 = {ts::Col256(ts::ColorMode::FOREGROUND, i)},
                 .poststyle256 = {ts::Col256(ts::ColorMode::BACKGROUND, i)}
             }
         };
